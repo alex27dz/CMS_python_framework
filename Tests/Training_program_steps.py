@@ -4059,7 +4059,9 @@ def applicationreview():
     time.sleep(2)
     appinfo = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[1]/div[2]/div')
     print('Application general information:', appinfo.text)
+    time.sleep(15)
     return True
+
 def submitapp():
     print('submitting app')
     cert2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]')

@@ -253,9 +253,9 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 30-May-2023 at 21:34:39 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 30-May-2023 at 22:22:09 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Summary</h2>
-    <p>0 tests ran in 176.29 seconds. </p>
+    <p>0 tests ran in 1149.97 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -275,6 +275,238 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">Tests\test_suit.py:2: in &lt;module&gt;<br/>    from Training_program_steps import *<br/>Tests\Training_program_steps.py:4101: in &lt;module&gt;<br/>    uploadfiles()<br/>Tests\Training_program_steps.py:187: in uploadfiles<br/>    uploadbutton1.send_keys(file_path)<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webelement.py:231: in send_keys<br/>    self._execute(<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webelement.py:403: in _execute<br/>    return self._parent.execute(command, params)<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py:440: in execute<br/>    self.error_handler.check_response(response)<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:245: in check_response<br/>    raise exception_class(message, screen, stacktrace)<br/><span class="error">E   selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: File not found : DevOps.jpg</span><br/><span class="error">E     (Session info: chrome=111.0.5563.65)</span><br/><span class="error">E   Stacktrace:</span><br/><span class="error">E   Backtrace:</span><br/><span class="error">E   	(No symbol) [0x00BCDCE3]</span><br/><span class="error">E   	(No symbol) [0x00B639D1]</span><br/><span class="error">E   	(No symbol) [0x00A74DA8]</span><br/><span class="error">E   	(No symbol) [0x00A9B05F]</span><br/><span class="error">E   	(No symbol) [0x00ABAECC]</span><br/><span class="error">E   	(No symbol) [0x00A98726]</span><br/><span class="error">E   	(No symbol) [0x00ABB224]</span><br/><span class="error">E   	(No symbol) [0x00ACD57C]</span><br/><span class="error">E   	(No symbol) [0x00ABACC6]</span><br/><span class="error">E   	(No symbol) [0x00A96F68]</span><br/><span class="error">E   	(No symbol) [0x00A980CD]</span><br/><span class="error">E   	GetHandleVerifier [0x00E43832+2506274]</span><br/><span class="error">E   	GetHandleVerifier [0x00E79794+2727300]</span><br/><span class="error">E   	GetHandleVerifier [0x00E7E36C+2746716]</span><br/><span class="error">E   	GetHandleVerifier [0x00C76690+617600]</span><br/><span class="error">E   	(No symbol) [0x00B6C712]</span><br/><span class="error">E   	(No symbol) [0x00B71FF8]</span><br/><span class="error">E   	(No symbol) [0x00B720DB]</span><br/><span class="error">E   	(No symbol) [0x00B7C63B]</span><br/><span class="error">E   	BaseThreadInitThunk [0x760C00C9+25]</span><br/><span class="error">E   	RtlGetAppContainerNamedObjectPath [0x77287B4E+286]</span><br/><span class="error">E   	RtlGetAppContainerNamedObjectPath [0x77287B1E+238]</span><br/> --------------------------------Captured stdout--------------------------------- <br/>Start
+            <div class="log">Tests\test_suit.py:2: in &lt;module&gt;<br/>    from Training_program_steps import *<br/>Tests\Training_program_steps.py:4102: in &lt;module&gt;<br/>    applicationreview()<br/>Tests\Training_program_steps.py:4055: in applicationreview<br/>    cert = driver.find_element(By.XPATH, &#x27;//*[@id=&quot;main-content&quot;]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]&#x27;)<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py:831: in find_element<br/>    return self.execute(Command.FIND_ELEMENT, {&quot;using&quot;: by, &quot;value&quot;: value})[&quot;value&quot;]<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py:440: in execute<br/>    self.error_handler.check_response(response)<br/>C:\Users\DzhohaAl\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py:245: in check_response<br/>    raise exception_class(message, screen, stacktrace)<br/><span class="error">E   selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&quot;main-content&quot;]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]&quot;}</span><br/><span class="error">E     (Session info: chrome=111.0.5563.65)</span><br/><span class="error">E   Stacktrace:</span><br/><span class="error">E   Backtrace:</span><br/><span class="error">E   	(No symbol) [0x00BCDCE3]</span><br/><span class="error">E   	(No symbol) [0x00B639D1]</span><br/><span class="error">E   	(No symbol) [0x00A74DA8]</span><br/><span class="error">E   	(No symbol) [0x00AA019F]</span><br/><span class="error">E   	(No symbol) [0x00AA03AB]</span><br/><span class="error">E   	(No symbol) [0x00ACEE62]</span><br/><span class="error">E   	(No symbol) [0x00ABAF14]</span><br/><span class="error">E   	(No symbol) [0x00ACD57C]</span><br/><span class="error">E   	(No symbol) [0x00ABACC6]</span><br/><span class="error">E   	(No symbol) [0x00A96F68]</span><br/><span class="error">E   	(No symbol) [0x00A980CD]</span><br/><span class="error">E   	GetHandleVerifier [0x00E43832+2506274]</span><br/><span class="error">E   	GetHandleVerifier [0x00E79794+2727300]</span><br/><span class="error">E   	GetHandleVerifier [0x00E7E36C+2746716]</span><br/><span class="error">E   	GetHandleVerifier [0x00C76690+617600]</span><br/><span class="error">E   	(No symbol) [0x00B6C712]</span><br/><span class="error">E   	(No symbol) [0x00B71FF8]</span><br/><span class="error">E   	(No symbol) [0x00B720DB]</span><br/><span class="error">E   	(No symbol) [0x00B7C63B]</span><br/><span class="error">E   	BaseThreadInitThunk [0x760C00C9+25]</span><br/><span class="error">E   	RtlGetAppContainerNamedObjectPath [0x77287B4E+286]</span><br/><span class="error">E   	RtlGetAppContainerNamedObjectPath [0x77287B1E+238]</span><br/> --------------------------------Captured stdout--------------------------------- <br/>Start
 uploading files
+ Filling up the boxes and links 
+Box 1
+Box 2
+Box 3
+Box 4
+Box 5
+Section - 9
+9.1.1
+9.1.1.a
+tab 1
+tab 2
+tab 3
+9.1.1.b
+tab 2
+tab 3
+9.1.1.c
+tab 2
+tab 3
+9.1.1.d
+tab 2
+tab 3
+9.1.1.e
+tab 2
+tab 3
+9.1.2.a
+tab 2
+tab 3
+9.1.2.b
+tab 2
+tab 3
+9.1.2.c
+tab 2
+tab 3
+9.1.2.d
+tab 2
+tab 3
+9.1.2.f
+tab 2
+tab 3
+9.1.2.e
+tab 2
+tab 3
+# Box 93
+9.1.3.a
+tab 2
+tab 3
+9.1.3.b
+tab 2
+tab 3
+9.1.3.c
+tab 2
+tab 3
+9.1.3.d
+tab 2
+tab 3
+# Box 94
+9.1.4.a
+tab 2
+tab 3
+9.1.4.b
+tab 2
+tab 3
+9.1.4.c
+tab 2
+tab 3
+9.1.4.d
+tab 2
+tab 3
+# Box 95
+Box 9.5.1.a
+tab 2
+tab 3
+Box 9.5.1.b
+tab 2
+tab 3
+Box 9.5.1.c
+tab 2
+tab 3
+Box 9.5.1.d
+tab 2
+tab 3
+Box 9.1.6
+9.1.5.a
+tab 2
+tab 3
+9.1.5.b
+tab 2
+tab 3
+9.1.5.c
+tab 2
+tab 3
+9.1.5.d
+tab 2
+tab 3
+9.1.5.e
+tab 2
+tab 3
+9.1.5.f
+tab 2
+tab 3
+Box 9.1.5.g
+tab 2
+tab 3
+stopped here last run
+9.1.5.h
+tab 2
+tab 3
+9.1.5.i
+tab 2
+tab 3
+9.1.5.j
+tab 2
+tab 3
+9.1.5.k
+tab 2
+tab 3
+9.1.5.l
+tab 2
+tab 3
+Box 9.2.1
+9.2.1.a
+tab 2
+tab 3
+9.2.1.b
+tab 2
+tab 3
+9.2.1.c
+tab 2
+tab 3
+9.2.2
+9.2.2.a
+tab 2
+tab 3
+9.2.2.b
+tab 2
+tab 3
+9.2.2.c
+tab 2
+tab 3
+9.2.2.d
+tab 2
+tab 3
+9.2.2.e
+tab 2
+tab 3
+9.2.2.f
+tab 2
+tab 3
+9.2.2.g
+tab 2
+tab 3
+9.2.2.h
+tab 2
+tab 3
+9.2.2.i
+tab 2
+tab 3
+9.2.2.j
+tab 2
+tab 3
+9.2.2.k
+tab 2
+tab 3
+9.2.2.l
+tab 2
+tab 3
+9.2.2.m
+tab 2
+tab 3
+9.2.2.n
+tab 2
+tab 3
+9.2.2.o
+tab 2
+tab 3
+9.2.2.p
+tab 2
+tab 3
+Box 9.2.3
+9.2.3.a
+tab 2
+tab 3
+9.2.3.b
+tab 2
+tab 3
+9.2.3.c
+tab 2
+tab 3
+9.2.3.d
+tab 2
+tab 3
+9.2.3.e
+tab 2
+tab 3
+9.2.3.f
+tab 2
+tab 3
+9.2.3.g
+tab 2
+tab 3
+9.2.3.h
+tab 2
+tab 3
+Box 9.2.4
+9.2.4.a
+tab 2
+tab 3
+9.2.4.b
+tab 2
+tab 3
+9.2.4.c
+tab 2
+tab 3
+9.2.4.d
+tab 2
+tab 3
+Box 9.2.5
+9.2.5.a
+tab 2
+tab 3
+9.2.5.b
+tab 2
+tab 3
+9.2.5.c
+tab 2
+tab 3
+9.2.5.d
+tab 2
+tab 3
+finished
+clicked
+Application Review
 <br/></div></td></tr></tbody></table></body></html>
