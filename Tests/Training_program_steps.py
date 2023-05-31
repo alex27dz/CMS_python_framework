@@ -29,6 +29,7 @@ def logging():
     password.send_keys('NV27vnmc!!')
     sign_in = driver.find_element(By.XPATH, '//*[@id="okta-signin-submit"]')
     sign_in.click()
+    time.sleep(15)
     return True
 def subbmittionoftrainingprogram():
     wait = WebDriverWait(driver, 60)
@@ -4094,6 +4095,7 @@ def viewdelaisofcreatedapp():
     time.sleep(3)
     return True
 
+"""
 print('Start')
 openweb()
 logging()
@@ -4106,5 +4108,5 @@ submitapp()
 successcheck()
 viewdelaisofcreatedapp()
 print('End')
-
+"""
 

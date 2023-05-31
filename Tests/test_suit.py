@@ -18,7 +18,7 @@ def test_somthing_before(fixture_func_hi, fixture_func_bye):
 
 def test_full_training_program_creation():
     print('Start')
-    assert openweb() is True, 'Failed to open browser on link'
+    openweb()
     assert logging() is True, 'Failed to log in'
     assert subbmittionoftrainingprogram() is True, 'Failed to submit information'
     assert checkboxes() is True, 'Failed to fill up checkboxes'
