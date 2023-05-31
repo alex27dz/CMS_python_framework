@@ -183,7 +183,7 @@ def uploadfiles():
     upload = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[1]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload)  # Scrolling to the upload section
     uploadbutton1 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[1]/div/div/div/app-file-upload/div/div/input')  # Upload element
-    file_path = "/Files/DevOps.jpg"  # File
+    file_path = "DevOps.jpg"  # File
     uploadbutton1.send_keys(file_path)
     time.sleep(2)
 
@@ -191,7 +191,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[2]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[2]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -199,7 +199,7 @@ def uploadfiles():
     upload3 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[3]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload3)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[3]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -207,7 +207,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[4]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[4]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -215,7 +215,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[5]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[5]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -223,7 +223,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[6]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[6]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -231,7 +231,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[7]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[7]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -239,7 +239,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[8]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[8]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -247,7 +247,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[9]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[9]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -255,7 +255,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[10]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[10]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
@@ -263,7 +263,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[11]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[11]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Files/DevOps2.jpg"  # File 2
+    file_path = "DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(2)
 
