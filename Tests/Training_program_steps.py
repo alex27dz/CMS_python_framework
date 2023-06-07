@@ -9,29 +9,31 @@ from selenium.webdriver.support.ui import WebDriverWait
 webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
 service = Service(executable_path=webdriver_path)
 driver = webdriver.Chrome(service=service)
+portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
+user = 'cmsproj01@gmail.com'
+password = 'NV27vnmc!!'
+wah = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[5]'
 
-
-def openweb():
-    portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
-    driver.get(portal_link)  # Open Google website
+def openweb(link):
+    driver.get(link)  # Open Google website
     driver.maximize_window()
     time.sleep(3)
     return True
-def logging():
+def logging(user, password):
     logging = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-safety-and-prevention-homepage/div/app-login-header/div/div/div[2]/app-login-register/div/div/div[2]/div/div[2]/div/button')
     logging.click()
     time.sleep(3)
     email = driver.find_element(By.XPATH, '//*[@id="okta-signin-username"]')
     email.click()
-    email.send_keys('cmsproj01@gmail.com')
-    password = driver.find_element(By.XPATH, '//*[@id="okta-signin-password"]')
-    password.click()
-    password.send_keys('NV27vnmc!!')
+    email.send_keys(user)
+    passw = driver.find_element(By.XPATH, '//*[@id="okta-signin-password"]')
+    passw.click()
+    passw.send_keys(password)
     sign_in = driver.find_element(By.XPATH, '//*[@id="okta-signin-submit"]')
     sign_in.click()
     time.sleep(15)
     return True
-def subbmittionoftrainingprogram():
+def subbmittionoftrainingprogram(program):
     wait = WebDriverWait(driver, 60)
     submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')))
     submitnewtraining.click()  # Perform further actions with the element, such as clicking it or extracting its text
@@ -40,8 +42,8 @@ def subbmittionoftrainingprogram():
     wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select')))
     select_program.click()
     time.sleep(5)
-    working_at_heights = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[5]')
-    working_at_heights.click()
+    program = driver.find_element(By.XPATH, program)
+    program.click()
     time.sleep(5)
     english = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[3]/div/app-radio-button-list/div[3]/label')
     english.click()
@@ -4062,7 +4064,6 @@ def applicationreview():
     print('Application general information:', appinfo.text)
     time.sleep(15)
     return True
-
 def submitapp():
     print('submitting app')
     cert2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]')
@@ -4095,11 +4096,11 @@ def viewdelaisofcreatedapp():
     time.sleep(3)
     return True
 
-"""
+
 print('Start')
-openweb()
-logging()
-subbmittionoftrainingprogram()
+openweb(portal_link)
+logging(user, password)
+subbmittionoftrainingprogram(wah)
 checkboxes()
 trainingprogramsmaterials()
 uploadfiles()
@@ -4108,5 +4109,5 @@ submitapp()
 successcheck()
 viewdelaisofcreatedapp()
 print('End')
-"""
+
 
