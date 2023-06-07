@@ -5,14 +5,21 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+
 # Webdriver
 webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
 service = Service(executable_path=webdriver_path)
 driver = webdriver.Chrome(service=service)
+
+# Parameters
 portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
 user = 'cmsproj01@gmail.com'
 password = 'NV27vnmc!!'
-wah = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[5]'
+JHSCPartOne = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[2]'
+JHSCPartTwo = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[3]'
+JHSCRefresher = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[4]'
+WorkingatHeights = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[5]'
+
 
 def openweb(link):
     driver.get(link)  # Open Google website
@@ -42,8 +49,8 @@ def subbmittionoftrainingprogram(program):
     wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select')))
     select_program.click()
     time.sleep(5)
-    program = driver.find_element(By.XPATH, program)
-    program.click()
+    prog = driver.find_element(By.XPATH, program)
+    prog.click()
     time.sleep(5)
     english = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[3]/div/app-radio-button-list/div[3]/label')
     english.click()
@@ -4100,7 +4107,7 @@ def viewdelaisofcreatedapp():
 print('Start')
 openweb(portal_link)
 logging(user, password)
-subbmittionoftrainingprogram(wah)
+subbmittionoftrainingprogram(WorkingatHeights)
 checkboxes()
 trainingprogramsmaterials()
 uploadfiles()
