@@ -4103,7 +4103,7 @@ def viewdelaisofcreatedapp():
     time.sleep(3)
     return True
 
-
+'''
 print('Start')
 openweb(portal_link)
 logging(user, password)
@@ -4116,5 +4116,5 @@ submitapp()
 successcheck()
 viewdelaisofcreatedapp()
 print('End')
-
+'''
 
