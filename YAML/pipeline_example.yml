@@ -3,7 +3,7 @@ trigger:
   - main
 
 # Pool of VMs for execution
-pool: windows-latest
+pool: LTC.SDC.Infrastructure.Imaging.Release
 
 
 steps:
