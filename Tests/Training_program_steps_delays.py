@@ -12,26 +12,26 @@ service = Service(executable_path=webdriver_path)
 driver = webdriver.Chrome(service=service)
 
 # Parameters
-#UAT
-portal_link = 'https://stage.apps.labour.gov.on.ca/public-portal-uat/safety-and-prevention/home#/my-training-programs'
+# UAT
+# portal_link = 'https://stage.apps.labour.gov.on.ca/public-portal-uat/safety-and-prevention/home#/my-training-programs'
+# QA
+portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
+user = 'cmsproj01@gmail.com'
+password = 'NV27vnmc!!'
 
-#QA
-#portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
-
-user = 'marty.cerisano@ontario.ca'
-password = 'Oscarmojo9*'
-
-#PROGRAMS
+# PROGRAMS
 JHSCPartOne = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[2]'
 JHSCPartTwo = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[3]'
 JHSCRefresher = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[4]'
 WorkingatHeights = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[5]'
 
+# Timers
 delay = 1
 short_delay = 0.005
 medium_delay = 2
 start_time = time.perf_counter()
 
+# Functions
 def openweb(link):
     driver.get(link)  # Open Google website
     driver.maximize_window()
@@ -53,11 +53,11 @@ def logging(user, password):
     return True
 def subbmittionoftrainingprogram(program):
     wait = WebDriverWait(driver, 60)
-    submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')))
+    submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[1]/app-page-content-loop/app-grey-text-box-sidebar/div/div[1]/h3')))
     submitnewtraining.click()  # Perform further actions with the element, such as clicking it or extracting its text
     time.sleep(delay)
-    select_program = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select')
-    wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select')))
+    select_program = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')
+    wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')))
     select_program.click()
     time.sleep(delay)
     prog = driver.find_element(By.XPATH, program)
@@ -221,7 +221,7 @@ def checkboxes():
     saveandcontinue2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/app-training-program-footer/div/div/div[1]/div/button[2]')
     driver.execute_script("arguments[0].scrollIntoView();", saveandcontinue2)
     saveandcontinue2.click()
-    time.sleep(30)
+    time.sleep(10)
     return True
 def trainingprogramsmaterials():
     wait = WebDriverWait(driver, 60)
@@ -235,7 +235,7 @@ def uploadfiles():
     upload = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[1]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload)  # Scrolling to the upload section
     uploadbutton1 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[1]/div/div/div/app-file-upload/div/div/input')  # Upload element
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File
     uploadbutton1.send_keys(file_path)
     time.sleep(delay)
 
@@ -243,7 +243,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[2]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[2]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -251,7 +251,7 @@ def uploadfiles():
     upload3 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[3]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload3)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[3]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -259,7 +259,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[4]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[4]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -267,7 +267,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[5]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[5]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -275,7 +275,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[6]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[6]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -283,7 +283,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[7]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[7]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -291,7 +291,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[8]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[8]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -299,7 +299,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[9]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[9]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -307,7 +307,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[10]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[10]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -315,7 +315,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[11]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[11]/div/div/div/app-file-upload/div/div/input')
-    file_path = "/Users/martycerisano/downloads/checked.png"  # File 2
+    file_path = "C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -338,7 +338,7 @@ def uploadfiles():
     page.send_keys('1')
     desc = driver.find_element(By.XPATH, '//*[@id="doc-link"]')
     desc.click()
-    desc.send_keys('LessonPlan/checked.png')
+    desc.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 2')  # Box 2
@@ -352,7 +352,7 @@ def uploadfiles():
     page.send_keys('2')
     desc = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[2]/div[3]/app-compliance-details/div/div[2]/div[1]/input')
     desc.click()
-    desc.send_keys('LessonPlan/checked.png')
+    desc.send_keys('LessonPlan/DevOps.jpg')
 
     # Box 3
     print('Box 3')
@@ -366,7 +366,7 @@ def uploadfiles():
     page.send_keys('3')
     desc = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[3]/div[3]/app-compliance-details/div/div[2]/div[1]/input')
     desc.click()
-    desc.send_keys('LessonPlan/checked.png')
+    desc.send_keys('LessonPlan/DevOps.jpg')
 
     # Box 4
     print('Box 4')
@@ -380,7 +380,7 @@ def uploadfiles():
     page.send_keys('4')
     desc = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[4]/div[3]/app-compliance-details/div/div[2]/div[1]/input')
     desc.click()
-    desc.send_keys('LessonPlan/checked.png')
+    desc.send_keys('LessonPlan/DevOps.jpg')
 
     # Box 5
     print('Box 5')
@@ -394,7 +394,7 @@ def uploadfiles():
     page.send_keys('5')
     desc = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[5]/div[3]/app-compliance-details/div/div[2]/div[1]/input')
     desc.click()
-    desc.send_keys('LessonPlan/checked.png')
+    desc.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     # Section 9 - boxes and links
@@ -420,7 +420,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 2')
@@ -438,7 +438,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -456,7 +456,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.1.b')
@@ -473,7 +473,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
 
     print('tab 2')
     # Clicking on tab
@@ -494,7 +494,7 @@ def uploadfiles():
     link = driver.find_element(By.XPATH,
                                '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -516,7 +516,7 @@ def uploadfiles():
     link = driver.find_element(By.XPATH,
                                '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -534,7 +534,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
 
     print('tab 2')
     # Clicking on tab
@@ -555,7 +555,7 @@ def uploadfiles():
     link = driver.find_element(By.XPATH,
                                '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -577,7 +577,7 @@ def uploadfiles():
     link = driver.find_element(By.XPATH,
                                '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -595,7 +595,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
 
     print('tab 2')
     # Clicking on tab
@@ -616,7 +616,7 @@ def uploadfiles():
     link = driver.find_element(By.XPATH,
                                '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -638,7 +638,7 @@ def uploadfiles():
     link = driver.find_element(By.XPATH,
                                '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -659,7 +659,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
 
     print('tab 2')
     # Clicking on tab
@@ -676,7 +676,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -694,7 +694,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[2]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -712,7 +712,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
 
     print('tab 2')
     # Clicking on tab
@@ -729,7 +729,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -747,7 +747,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -766,7 +766,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     print('tab 2')
     # Clicking on tab
     tab2 = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[2]/div[4]/app-tabs/div/div[1]/div/ul/li[2]')
@@ -782,7 +782,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -800,7 +800,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -818,7 +818,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     print('tab 2')
     # Clicking on tab
     tab2 = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[3]/div[4]/app-tabs/div/div[1]/div/ul/li[2]')
@@ -834,7 +834,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -852,7 +852,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -871,7 +871,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     print('tab 2')
     # Clicking on tab
     tab2 = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[4]/div[4]/app-tabs/div/div[1]/div/ul/li[2]')
@@ -887,7 +887,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -905,7 +905,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -924,7 +924,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     print('tab 2')
     # Clicking on tab
     tab2 = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[5]/div[4]/app-tabs/div/div[1]/div/ul/li[2]')
@@ -940,7 +940,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -958,7 +958,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.2.e')
@@ -975,7 +975,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     print('tab 2')
     # Clicking on tab
     tab2 = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[6]/div[4]/app-tabs/div/div[1]/div/ul/li[2]')
@@ -991,7 +991,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1009,7 +1009,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[3]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('# Box 93')  # Box 93
@@ -1027,7 +1027,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1044,7 +1044,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1062,7 +1062,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.3.b')
@@ -1079,7 +1079,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1096,7 +1096,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1114,7 +1114,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.3.c')
@@ -1131,7 +1131,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1148,7 +1148,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1166,7 +1166,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.3.d')
@@ -1183,7 +1183,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 2')
@@ -1201,7 +1201,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1219,7 +1219,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[4]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('# Box 94')  # Box 94
@@ -1237,7 +1237,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1254,7 +1254,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1272,7 +1272,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.4.b')
@@ -1289,7 +1289,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 2')
@@ -1307,7 +1307,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1325,7 +1325,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.4.c')
@@ -1342,7 +1342,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 2')
@@ -1360,7 +1360,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1378,7 +1378,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.4.d')
@@ -1395,7 +1395,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 2')
@@ -1413,7 +1413,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1431,7 +1431,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[5]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('# Box 95')  # Box 95
@@ -1449,7 +1449,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     print('tab 2')
     # Clicking on tab
     tab2 = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[1]/div[4]/app-tabs/div/div[1]/div/ul/li[2]')
@@ -1465,7 +1465,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1483,7 +1483,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.5.1.b')
@@ -1500,7 +1500,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1517,7 +1517,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1535,7 +1535,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.5.1.c')
@@ -1552,7 +1552,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1569,7 +1569,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1587,7 +1587,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.5.1.d')
@@ -1604,7 +1604,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1621,7 +1621,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1639,7 +1639,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[6]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.1.6')
@@ -1657,7 +1657,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1674,7 +1674,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1692,7 +1692,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.b')
@@ -1709,7 +1709,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1726,7 +1726,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1744,7 +1744,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.c')
@@ -1761,7 +1761,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1778,7 +1778,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1796,7 +1796,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.d')
@@ -1813,7 +1813,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1830,7 +1830,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1848,7 +1848,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.e')
@@ -1865,7 +1865,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1882,7 +1882,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1900,7 +1900,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.f')
@@ -1917,7 +1917,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1934,7 +1934,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -1952,7 +1952,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.1.5.g')
@@ -1969,7 +1969,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -1986,7 +1986,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2005,7 +2005,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.h')
@@ -2022,7 +2022,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2039,7 +2039,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2057,7 +2057,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.i')
@@ -2074,7 +2074,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[9]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2091,7 +2091,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[9]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2109,7 +2109,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[9]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.j')
@@ -2126,7 +2126,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[10]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2143,7 +2143,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[10]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2161,7 +2161,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[10]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.k')
@@ -2178,7 +2178,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[11]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2195,7 +2195,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[11]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2213,7 +2213,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[11]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.1.5.l')
@@ -2230,7 +2230,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[12]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2247,7 +2247,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[12]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2265,7 +2265,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[7]/div/div/div/div[12]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -2284,7 +2284,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2301,7 +2301,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2319,7 +2319,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.1.b')
@@ -2336,7 +2336,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2353,7 +2353,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2371,7 +2371,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.1.c')
@@ -2388,7 +2388,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2405,7 +2405,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2423,7 +2423,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[8]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2')
@@ -2441,7 +2441,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2458,7 +2458,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2476,7 +2476,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.b')
@@ -2493,7 +2493,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2510,7 +2510,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2528,7 +2528,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.c')
@@ -2545,7 +2545,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2562,7 +2562,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2580,7 +2580,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.d')
@@ -2597,7 +2597,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2614,7 +2614,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2632,7 +2632,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.e')
@@ -2649,7 +2649,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2666,7 +2666,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2684,7 +2684,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.f')
@@ -2701,7 +2701,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2718,7 +2718,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2736,7 +2736,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.g')
@@ -2753,7 +2753,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2770,7 +2770,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2788,7 +2788,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.h')
@@ -2805,7 +2805,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2822,7 +2822,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2840,7 +2840,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.i')
@@ -2857,7 +2857,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[9]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2874,7 +2874,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[9]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2892,7 +2892,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[9]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.j')
@@ -2909,7 +2909,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[10]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2926,7 +2926,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[10]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2944,7 +2944,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[10]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.k')
@@ -2961,7 +2961,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[11]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -2978,7 +2978,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[11]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -2996,7 +2996,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[11]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -3014,7 +3014,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[12]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3031,7 +3031,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[12]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3049,7 +3049,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[12]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.m')
@@ -3066,7 +3066,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[13]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3083,7 +3083,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[13]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3101,7 +3101,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[13]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.n')
@@ -3118,7 +3118,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[14]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3135,7 +3135,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[14]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3153,7 +3153,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[14]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.o')
@@ -3170,7 +3170,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[15]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3187,7 +3187,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[15]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3205,7 +3205,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[15]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.2.p')
@@ -3222,7 +3222,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[16]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3239,7 +3239,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[16]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3257,7 +3257,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[9]/div/div/div/div[16]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.2.3')
@@ -3275,7 +3275,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3292,7 +3292,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3310,7 +3310,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.b')
@@ -3327,7 +3327,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3344,7 +3344,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3362,7 +3362,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.c')
@@ -3379,7 +3379,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3396,7 +3396,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3414,7 +3414,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.d')
@@ -3431,7 +3431,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3448,7 +3448,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3466,7 +3466,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.e')
@@ -3483,7 +3483,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3500,7 +3500,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3518,7 +3518,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[5]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.f')
@@ -3535,7 +3535,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3552,7 +3552,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3570,7 +3570,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[6]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.g')
@@ -3587,7 +3587,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3604,7 +3604,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3622,7 +3622,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[7]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.3.h')
@@ -3639,7 +3639,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3656,7 +3656,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3674,7 +3674,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[10]/div/div/div/div[8]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('Box 9.2.4')
@@ -3692,7 +3692,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3709,7 +3709,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3727,7 +3727,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.4.b')
@@ -3744,7 +3744,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3761,7 +3761,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3779,7 +3779,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.4.c')
@@ -3796,7 +3796,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3813,7 +3813,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3831,7 +3831,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.4.d')
@@ -3848,7 +3848,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3865,7 +3865,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3883,7 +3883,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[11]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
 
@@ -3902,7 +3902,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3919,7 +3919,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3937,7 +3937,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[1]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.5.b')
@@ -3954,7 +3954,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -3971,7 +3971,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -3989,7 +3989,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[2]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.5.c')
@@ -4006,7 +4006,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -4023,7 +4023,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -4041,7 +4041,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[3]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('9.2.5.d')
@@ -4058,7 +4058,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[1]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
     print('tab 2')
     # Clicking on tab
@@ -4075,7 +4075,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[2]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
 
     print('tab 3')
@@ -4093,7 +4093,7 @@ def uploadfiles():
     time.sleep(short_delay)
     link = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[2]/div/div/app-requirements-section-list/app-requirements-input[12]/div/div/div/div[4]/div[4]/app-tabs/div/div[2]/app-tab[3]/div/app-compliance-details/div/div[2]/div[1]/input')
     link.click()
-    link.send_keys('LessonPlan/checked.png')
+    link.send_keys('LessonPlan/DevOps.jpg')
 
     time.sleep(short_delay)
     print('finished')
@@ -4131,6 +4131,11 @@ def successcheck():
     sucess = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[2]/app-alert-banner/div/div/div[2]')
     print(sucess.text)
     return True
+def programid():
+    time.sleep(delay)
+    id = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[4]/app-training-program-list-card[1]/div/div[2]/div[1]/div[1]/div[1]/div[2]')
+    print('New created program ID: ', id.text)
+    return id.text
 def viewdelaisofcreatedapp():
     time.sleep(delay)
     viewdetils = driver.find_element(By.XPATH, '//*[@id="view-details"]')
@@ -4144,28 +4149,25 @@ def viewdelaisofcreatedapp():
     print(programname, trainingtype, language, programid, status)
     time.sleep(delay)
     return True
+def runtime():
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    print("Elapsed time: ", elapsed_time)
 
 
+# Code run
 print('Start')
-
 openweb(portal_link)
-logging(user, password)
-
-subbmittionoftrainingprogram(JHSCPartOne)
-
+logging(user, password)  # Log in with user
+subbmittionoftrainingprogram(WorkingatHeights)  # Training program type
 checkboxes()
 trainingprogramsmaterials()
 uploadfiles()
 applicationreview()
 submitapp()
 successcheck()
-#viewdelaisofcreatedapp()
-
-end_time = time.perf_counter()
-elapsed_time = end_time - start_time
-
-print("Elapsed time: ", elapsed_time)
-
+newprogramid = programid()
+runtime()
 print('End')
 
 
