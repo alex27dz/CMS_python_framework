@@ -51,7 +51,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
+  <component name="RunManager" selected="Python.Training_program_steps_delays">
     <configuration name="Training_program_steps" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python.Training_program_steps_delays" />
+        <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation" />
         <item itemvalue="Python.Training_program_steps" />
         <item itemvalue="Python tests.Python tests in test_suit.py" />

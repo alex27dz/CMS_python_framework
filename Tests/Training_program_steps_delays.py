@@ -331,7 +331,7 @@ def uploadfiles():
     save.click()
     time.sleep(short_delay)
     driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[1]/div/ul/li[2]').click()
-    time.sleep(delay)
+    time.sleep(4)
     driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/div[1]/button').click()
 
     print('Box 1')  # Box 1
