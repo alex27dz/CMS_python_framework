@@ -51,7 +51,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Training_program_steps_delays">
+  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
     <configuration name="Training_program_steps" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,23 +108,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_suit" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="CMS_Python_framework" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\ADocuments\Python_framework\Python_framework\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.11 (Python_framework)" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_suit&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest for test_suit.test_full_training_program_creation" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,13 +124,29 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_suit.test_full_training_program_creation_WAH" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="CMS_Python_framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_suit.test_full_training_program_creation_WAH&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python.Training_program_steps_delays" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation" />
         <item itemvalue="Python.Training_program_steps" />
         <item itemvalue="Python tests.Python tests in test_suit.py" />
-        <item itemvalue="Python tests.pytest for test_suit" />
       </list>
     </recent_temporary>
   </component>
