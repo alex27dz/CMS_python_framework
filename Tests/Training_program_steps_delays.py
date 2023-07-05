@@ -1,4 +1,3 @@
-# Packages, modules
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -6,14 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-# Webdriver
-webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
-service = Service(executable_path=webdriver_path)
-driver = webdriver.Chrome(service=service)
-
-# Parameters
-# UAT
-# portal_link = 'https://stage.apps.labour.gov.on.ca/public-portal-uat/safety-and-prevention/home#/my-training-programs'
 # QA
 portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
 user = 'cmsproj01@gmail.com'
@@ -25,16 +16,21 @@ JHSCPartOne = '//*[@id="main-content"]/app-application-for-new-training-delivery
 JHSCPartTwo = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[3]'
 JHSCRefresher = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[4]'
 
-
 # Timers
 delay = 1
 short_delay = 0.005
 medium_delay = 2
+long_delay = 12
 start_time = time.perf_counter()
 
+# Webdriver
+webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
+service = Service(executable_path=webdriver_path)
+driver = webdriver.Chrome(service=service)
+
 # Functions
-def openweb(link):
-    driver.get(link)  # Open Google website
+def openweb(portal_link):
+    driver.get(portal_link)  # Open Google website
     driver.maximize_window()
     time.sleep(delay)
     return True
@@ -4308,7 +4304,8 @@ def uploadfiles():
     return True
 def applicationreview():
     print('Application Review')
-    time.sleep(medium_delay)
+    print('stopped')
+    time.sleep(long_delay)
     cert = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]')
     print('Certification: ', cert.text)
     infoextend = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[1]/div[2]/app-accordion/div/div/div[1]')
@@ -4332,7 +4329,7 @@ def submitapp():
     print('Application submitted')
     return True
 def successcheck():
-    time.sleep(delay)
+    time.sleep(long_delay)
     try:
         sucess = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[2]/app-alert-banner/div/div/div[2]')
         print(sucess.text)
@@ -4368,41 +4365,42 @@ def runtime():
 def closeweb():
     driver.close()
 
+# Scenario
 # Code run - Working at Heights
-print('Start')
-openweb(portal_link)
-logging(user, password)  # Log in with user
-subbmittionoftrainingprogram(WorkingatHeights)  # Training program type
-checkboxes(WorkingatHeights)  # Training program type
-trainingprogramsmaterials()
-uploadfiles()
-applicationreview()
-submitapp()
-successcheck()
+# print('Start')
+# openweb(portal_link)
+# logging(user, password)  # Log in with user
+# subbmittionoftrainingprogram(WorkingatHeights)  # Training program type
+# checkboxes(WorkingatHeights)  # Training program type
+# trainingprogramsmaterials()
+# uploadfiles()
+# applicationreview()
+# submitapp()
+# successcheck()
 # newprogramid = programid()
-runtime()
-closeweb()
-print('End')
-time.sleep(5)
+# runtime()
+# closeweb()
+# print('End')
+# time.sleep(5)
 
 
-webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
-service = Service(executable_path=webdriver_path)
-driver = webdriver.Chrome(service=service)
+# webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
+# service = Service(executable_path=webdriver_path)
+# driver = webdriver.Chrome(service=service)
 
 
 # Code run - JHSC Part One
-print('Start')
-openweb(portal_link)
-logging(user, password)  # Log in with user
-subbmittionoftrainingprogram(JHSCPartOne)  # Training program type
-checkboxes(JHSCPartOne)  # Training program type
-trainingprogramsmaterials()
-uploadfiles()
-applicationreview()
-submitapp()
-successcheck()
+# print('Start')
+# openweb(portal_link)
+# logging(user, password)  # Log in with user
+# subbmittionoftrainingprogram(JHSCPartOne)  # Training program type
+# checkboxes(JHSCPartOne)  # Training program type
+# trainingprogramsmaterials()
+# uploadfiles()
+# applicationreview()
+# submitapp()
+# successcheck()
 # newprogramid = programid()
-runtime()
-closeweb()
-print('End')
+# runtime()
+# closeweb()
+# print('End')
