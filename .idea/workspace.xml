@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Training_program_steps_delays.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Training_program_steps_delays.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/test_suit.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test_suit.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,15 +32,15 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "C:/ADocuments/Python_framework/CMS_Python",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ADocuments/Python_framework/CMS_Python&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\ADocuments\Python_framework\CMS_Python" />
@@ -51,7 +50,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_suit.py">
+  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
     <configuration name="Training_program_steps_delays" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,10 +138,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest in test_suit.py" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
-        <item itemvalue="Python tests.pytest for test_suit" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_JHSC" />
+        <item itemvalue="Python tests.pytest in test_suit.py" />
+        <item itemvalue="Python tests.pytest for test_suit" />
         <item itemvalue="Python.Training_program_steps_delays" />
       </list>
     </recent_temporary>

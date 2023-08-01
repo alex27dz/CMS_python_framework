@@ -34,7 +34,7 @@ def test_full_training_program_creation_WAH():
     assert successcheck() is True, 'Failed to check success'
     # newprogramid = programid()
     runtime()
-    closeweb()
+    # closeweb()
     print('End')
 
 
