@@ -1,10 +1,8 @@
-# api.py (the code you are testing)
 import requests
 import api
-
-# need apis links and authentication, db information
-
 import pytest
+
+
 def get_tasks():
     response = requests.get("https://example-api.com/tasks")
     return response.json()
@@ -15,7 +13,7 @@ def test_get_tasks_data():
     response = api.get_tasks()
     assert "tasks" in response
 
-
+# need apis links and authentication, db information
 BASE_URL = "https://example-api.com"
 HEADERS = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}  # Replace with your actual access token
 def get_tasks():

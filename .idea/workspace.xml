@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/test_suit.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test_suit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,8 +50,8 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
-    <configuration name="Training_program_steps_delays" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.api_list">
+    <configuration name="api_list" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,7 +63,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/Training_program_steps_delays.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/api_list.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.api_list" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_JHSC" />
         <item itemvalue="Python tests.pytest in test_suit.py" />
         <item itemvalue="Python tests.pytest for test_suit" />
-        <item itemvalue="Python.Training_program_steps_delays" />
       </list>
     </recent_temporary>
   </component>
