@@ -11,7 +11,9 @@ Then insert the learning record
 When the learner unique id does exist in the system
 Then update the learning record
 '''
-def get_data_new():  # Add Learning Record AP
+
+# Add Learning Record API
+def get_data_new():
     print('Add Learning Record AP')
     url = "https://private-anon-78376c118a-bluedrop360apiv2network.apiary-mock.com/api-v2/learning-records"
     headers = {
@@ -48,6 +50,16 @@ def get_data_new():  # Add Learning Record AP
     print(response.status_code)  # 204
     # print(response.json())
     # print(response.text)
-
-
 get_data_new()
+
+
+# API 1
+
+# API 2
+
+# API 3
+
+# API 4
+
+# API 5
+
