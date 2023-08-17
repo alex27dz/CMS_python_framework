@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -24,12 +25,18 @@ medium_delay = 2
 long_delay = 12
 start_time = time.perf_counter()
 
+
+
 # Webdriver
 # webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
 # service = Service(executable_path=webdriver_path)
 # driver = webdriver.Chrome(service=service)
 chromedriver_autoinstaller.install()  # Automatically download and install Chrome WebDriver
-driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
+# Headless mode
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+driver = webdriver.Chrome(options=chrome_options)
+# driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
 
 
 # Functions
