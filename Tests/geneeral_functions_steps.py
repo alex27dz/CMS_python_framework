@@ -1,5 +1,6 @@
 import time
 from selenium import webdriver
+import chromedriver_autoinstaller
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -24,9 +25,12 @@ long_delay = 12
 start_time = time.perf_counter()
 
 # Webdriver
-webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
-service = Service(executable_path=webdriver_path)
-driver = webdriver.Chrome(service=service)
+# webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
+# service = Service(executable_path=webdriver_path)
+# driver = webdriver.Chrome(service=service)
+chromedriver_autoinstaller.install()  # Automatically download and install Chrome WebDriver
+driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
+
 
 # Functions
 def openweb(portal_link):
