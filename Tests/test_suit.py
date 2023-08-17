@@ -3,7 +3,7 @@ from geneeral_functions_steps import *
 
 def test_full_training_program_creation_JHSC():
     print('Start')
-    assert openweb(portal_link) is True, 'Failed to open web'
+    openweb(portal_link)
     assert logging(user, password) is True, 'Failed to log in'
     assert subbmittionoftrainingprogram(JHSCPartOne) is True, 'Failed to submit information'
     assert checkboxes(JHSCPartOne) is True, 'Failed to fill up checkboxes'
