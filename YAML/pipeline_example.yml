@@ -2,8 +2,8 @@
 trigger:
   - develop
 
-# Pool of VMs for execution
-pool: LTC.OMSB.VMSS.Shared
+# Pool of VMs for execution  - Azure Pipelines   pool: LTC.OMSB.VMSS.Shared
+pool: Azure Pipelines
 
 
 steps:
