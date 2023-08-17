@@ -1,5 +1,5 @@
 import pytest
-from Training_program_steps_delays import *
+from geneeral_functions_steps import *
 
 def test_full_training_program_creation_JHSC():
     print('Start')

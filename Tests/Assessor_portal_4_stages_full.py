@@ -43,5 +43,6 @@ def logging(user, password):
     return True
 
 openweb('https://intra.stage.apps.labour.gov.on.ca/internal-portal-qa/#/program-delivery-applications')
-logging()
+
+
 
