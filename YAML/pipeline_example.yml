@@ -1,9 +1,9 @@
 # Name of our source code branch
 trigger:
-  - main
+  - develop
 
 # Pool of VMs for execution
-pool: windows-latest
+pool: LTC.OMSB.VMSS.Shared
 
 
 steps:
