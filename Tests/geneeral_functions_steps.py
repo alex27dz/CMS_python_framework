@@ -50,6 +50,7 @@ def openweb(portal_link):
     time.sleep(delay)
     return True
 def logging(user, password):
+    time.sleep(10)
     logging = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-safety-and-prevention-homepage/div/app-login-header/div/div/div[2]/app-login-register/div/div/div[2]/div/div[2]/div/button')
     logging.click()
     time.sleep(delay)
