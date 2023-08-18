@@ -5,13 +5,13 @@ def test_full_training_program_creation_JHSC():
     print('Start')
     openweb(portal_link)
     print('link connected')
-    logging(user, password) is True, 'Failed to log in'
-    subbmittionoftrainingprogram(JHSCPartOne) is True, 'Failed to submit information'
-    checkboxes(JHSCPartOne) is True, 'Failed to fill up checkboxes'
-    trainingprogramsmaterials() is True, 'Failed to fill up materials'
-    uploadfiles() is True, 'Failed to upload files'
-    applicationreview() is True, 'Failed to review app'
-    submitapp() is True, 'Failed to submit final app'
+    logging(user, password)
+    subbmittionoftrainingprogram(JHSCPartOne)
+    checkboxes(JHSCPartOne)
+    trainingprogramsmaterials()
+    uploadfiles()
+    applicationreview()
+    submitapp()
     assert successcheck() is True, 'Failed to check success'
     # newprogramid = programid()
     runtime()
