@@ -1,6 +1,6 @@
 # Name of our source code branch
 trigger:
-  - develop
+  - cloud
 
 # Pool of VMs for execution  - Azure Pipelines   pool: LTC.OMSB.VMSS.Shared
 pool: Azure Pipelines
