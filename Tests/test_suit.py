@@ -4,6 +4,7 @@ from geneeral_functions_steps import *
 def test_full_training_program_creation_JHSC():
     print('Start')
     openweb(portal_link)
+    print('link connected')
     logging(user, password) is True, 'Failed to log in'
     assert subbmittionoftrainingprogram(JHSCPartOne) is True, 'Failed to submit information'
     assert checkboxes(JHSCPartOne) is True, 'Failed to fill up checkboxes'
