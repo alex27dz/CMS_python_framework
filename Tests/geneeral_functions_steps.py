@@ -35,8 +35,8 @@ chromedriver_autoinstaller.install()  # Automatically download and install Chrom
 # Headless mode
 chrome_options = Options()
 chrome_options.add_argument("--headless")
-# driver = webdriver.Chrome(options=chrome_options)
-driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
+driver = webdriver.Chrome(options=chrome_options)
+# driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
 
 
 # Functions
