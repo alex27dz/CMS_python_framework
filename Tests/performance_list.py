@@ -83,13 +83,6 @@ def test_peak_load_news_website():
         response = requests.get("YOUR_URL/news")
         assert response.status_code == 200
 
-# ... (similarly, you can create tests for other criteria)
-
-
-import pytest
-import time
-import requests
-
 
 # Example 11: Failover and Recovery Testing
 @pytest.mark.performance
