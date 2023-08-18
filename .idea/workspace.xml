@@ -49,7 +49,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
+  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_JHSC">
     <configuration name="api_list" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_JHSC" />
+        <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python.new" />
         <item itemvalue="Python.api_list" />
         <item itemvalue="Python tests.pytest in test_full_functionality.py" />
