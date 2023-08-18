@@ -41,7 +41,11 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # Functions
 def openweb(portal_link):
-    driver.get(portal_link)  # Open Google website
+    try:  # Initialize WebDriver
+        driver.get(portal_link)  # Open the provided URL
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+      # Open Google website
     driver.maximize_window()
     time.sleep(delay)
     return True
