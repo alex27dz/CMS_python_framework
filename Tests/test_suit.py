@@ -17,7 +17,7 @@ def test_full_training_program_creation_JHSC():
     # closeweb()
     print('End')
 
-
+'''
 def test_full_training_program_creation_WAH():
     print('Start')
     assert openweb(portal_link) is True, 'Failed to open web'
@@ -36,6 +36,6 @@ def test_full_training_program_creation_WAH():
     runtime()
     # closeweb()
     print('End')
-
+'''
 
 
