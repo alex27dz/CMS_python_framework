@@ -33,8 +33,8 @@ start_time = time.perf_counter()
 # driver = webdriver.Chrome(service=service)
 chromedriver_autoinstaller.install()  # Automatically download and install Chrome WebDriver
 # Headless mode
-# chrome_options = Options()
-# chrome_options.add_argument("--headless")
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 # driver = webdriver.Chrome(options=chrome_options)
 driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
 
