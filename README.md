@@ -48,7 +48,7 @@ trio-websocket==0.10.2
 urllib3==2.0.2
 wsproto==1.2.0
 
-<img width="1413" alt="Screenshot 2023-08-14 at 19 00 45" src="https://github.com/alex27dz/CMS_python_framework/assets/52358947/d68f0dbf-849c-442c-8e70-6624de5b3b9d">
+![Screenshot 2023-08-18 at 14 46 21](https://github.com/alex27dz/CMS_python_framework/assets/52358947/78ebc412-cd73-459f-b356-079036087b9f)
 
 
 
