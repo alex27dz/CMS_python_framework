@@ -48,4 +48,5 @@ trio-websocket==0.10.2
 urllib3==2.0.2
 wsproto==1.2.0
 
+![Screenshot 2023-08-18 at 14 46 21](https://github.com/alex27dz/CMS_python_framework/assets/52358947/c52750bb-24fd-4922-8da5-d8889014a25e)
 
