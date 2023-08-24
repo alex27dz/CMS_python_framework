@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/CMS_Python.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_test_suit_test_full_training_program_creation_JHSC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_test_suit_test_full_training_program_creation_WAH.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/api_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/api_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/geneeral_functions_steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/geneeral_functions_steps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/test_suit.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test_suit.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +39,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "cloud",
+    "git-widget-placeholder": "Merging cloud",
     "last_opened_file_path": "C:/ADocuments/Python/CMS_Python",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
