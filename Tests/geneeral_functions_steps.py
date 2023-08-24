@@ -11,7 +11,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
 user = 'cmsproj01@gmail.com'
 password = 'NV27vnmc!!'
-
 # PROGRAMS
 WorkingatHeights = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[5]'
 JHSCPartOne = '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select/option[2]'
@@ -25,8 +24,6 @@ medium_delay = 2
 long_delay = 12
 start_time = time.perf_counter()
 
-
-
 # Webdriver
 # webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
 # service = Service(executable_path=webdriver_path)
@@ -37,7 +34,6 @@ chromedriver_autoinstaller.install()  # Automatically download and install Chrom
 # chrome_options.add_argument("--headless")
 # driver = webdriver.Chrome(options=chrome_options)
 driver = webdriver.Chrome()  # Now you can create a Chrome WebDriver instance without specifying the executable path
-
 
 # Functions
 def openweb(portal_link):
@@ -252,7 +248,7 @@ def uploadfiles():
     upload = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[1]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload)  # Scrolling to the upload section
     uploadbutton1 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[1]/div/div/div/app-file-upload/div/div/input')  # Upload element
-    file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File
+    file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File
     uploadbutton1.send_keys(file_path)
     time.sleep(delay)
 
@@ -260,7 +256,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[2]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[2]/div/div/div/app-file-upload/div/div/input')
-    file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+    file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -268,7 +264,7 @@ def uploadfiles():
     upload3 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[3]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload3)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[3]/div/div/div/app-file-upload/div/div/input')
-    file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+    file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -276,7 +272,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[4]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[4]/div/div/div/app-file-upload/div/div/input')
-    file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+    file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(delay)
 
@@ -284,7 +280,7 @@ def uploadfiles():
     upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[5]/div/div/div/app-file-upload/div/div/button')
     driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
     uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[5]/div/div/div/app-file-upload/div/div/input')
-    file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+    file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
     uploadbutton2.send_keys(file_path)
     time.sleep(5)
 
@@ -293,7 +289,7 @@ def uploadfiles():
         upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[6]/div/div/div/app-file-upload/div/div/button')
         driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
         uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[6]/div/div/div/app-file-upload/div/div/input')
-        file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+        file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
         uploadbutton2.send_keys(file_path)
         time.sleep(delay)
 
@@ -301,7 +297,7 @@ def uploadfiles():
         upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[7]/div/div/div/app-file-upload/div/div/button')
         driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
         uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[7]/div/div/div/app-file-upload/div/div/input')
-        file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+        file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
         uploadbutton2.send_keys(file_path)
         time.sleep(delay)
 
@@ -309,7 +305,7 @@ def uploadfiles():
         upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[8]/div/div/div/app-file-upload/div/div/button')
         driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
         uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[8]/div/div/div/app-file-upload/div/div/input')
-        file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+        file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
         uploadbutton2.send_keys(file_path)
         time.sleep(delay)
 
@@ -317,7 +313,7 @@ def uploadfiles():
         upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[9]/div/div/div/app-file-upload/div/div/button')
         driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
         uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[9]/div/div/div/app-file-upload/div/div/input')
-        file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+        file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
         uploadbutton2.send_keys(file_path)
         time.sleep(delay)
 
@@ -325,7 +321,7 @@ def uploadfiles():
         upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[10]/div/div/div/app-file-upload/div/div/button')
         driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
         uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[10]/div/div/div/app-file-upload/div/div/input')
-        file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+        file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
         uploadbutton2.send_keys(file_path)
         time.sleep(delay)
 
@@ -333,7 +329,7 @@ def uploadfiles():
         upload2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[11]/div/div/div/app-file-upload/div/div/button')
         driver.execute_script("arguments[0].scrollIntoView();", upload2)  # Scrolling to the upload section
         uploadbutton2 = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-training-program-material/div/div[2]/div[2]/app-tabs/div/div[2]/app-tab[1]/div/div/div/div[2]/app-file-upload-accordion[11]/div/div/div/app-file-upload/div/div/input')
-        file_path = r"C:\ADocuments\Python_framework\CMS_Python\Tests\DevOps.jpg"  # File 2
+        file_path = r"C:\ADocuments\Python\CMS_Python\Tests\DevOps.jpg"  # File 2
         uploadbutton2.send_keys(file_path)
         time.sleep(delay)
     except:
@@ -4380,52 +4376,6 @@ def runtime():
     print("Elapsed time: ", elapsed_time)
 def closeweb():
     driver.close()
-
-# Scenario
-# Code run - Working at Heights
-# print('Start')
-# openweb(portal_link)
-# logging(user, password)  # Log in with user
-# subbmittionoftrainingprogram(WorkingatHeights)  # Training program type
-# checkboxes(WorkingatHeights)  # Training program type
-# trainingprogramsmaterials()
-# uploadfiles()
-# applicationreview()
-# submitapp()
-# successcheck()
-# newprogramid = programid()
-# runtime()
-# closeweb()
-# print('End')
-# time.sleep(5)
-
-
-# webdriver_path = "C:/ADocuments/Python_framework/CMS_Python_framework/chromedriver"
-# service = Service(executable_path=webdriver_path)
-# driver = webdriver.Chrome(service=service)
-
-
-# Code run - JHSC Part One
-# print('Start')
-# openweb(portal_link)
-# logging(user, password)  # Log in with user
-# subbmittionoftrainingprogram(JHSCPartOne)  # Training program type
-# checkboxes(JHSCPartOne)  # Training program type
-# trainingprogramsmaterials()
-# uploadfiles()
-# applicationreview()
-# submitapp()
-# successcheck()
-# newprogramid = programid()
-# runtime()
-# closeweb()
-# print('End')
-
-
-
-
-
-
 
 
 

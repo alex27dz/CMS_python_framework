@@ -5,7 +5,10 @@ def test_full_training_program_creation_JHSC():
     print('Start')
     openweb(portal_link)
     print('link connected')
-    logging(user, password)
+    try:
+        assert logging(user, password) is True, 'Failed to log in'
+    except:
+        print('Already logged in')
     subbmittionoftrainingprogram(JHSCPartOne)
     checkboxes(JHSCPartOne)
     trainingprogramsmaterials()
@@ -13,12 +16,10 @@ def test_full_training_program_creation_JHSC():
     applicationreview()
     submitapp()
     assert successcheck() is True, 'Failed to check success'
-    # newprogramid = programid()
     runtime()
-    # closeweb()
     print('End')
 
-'''
+
 def test_full_training_program_creation_WAH():
     print('Start')
     assert openweb(portal_link) is True, 'Failed to open web'
@@ -33,10 +34,8 @@ def test_full_training_program_creation_WAH():
     assert applicationreview() is True, 'Failed to review app'
     assert submitapp() is True, 'Failed to submit final app'
     assert successcheck() is True, 'Failed to check success'
-    # newprogramid = programid()
     runtime()
-    # closeweb()
     print('End')
-'''
+
 
 

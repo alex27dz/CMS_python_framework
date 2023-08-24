@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/CMS_Python.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_test_suit_test_full_training_program_creation_JHSC.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/pytest_for_test_suit_test_full_training_program_creation_WAH.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/api_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/api_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/geneeral_functions_steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/geneeral_functions_steps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/test_suit.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test_suit.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,21 +34,25 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2Nn6Tu3GTujxwuL8v4ZNEVCScZ7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;cloud&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/ADocuments/Python_framework/CMS_Python&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "cloud",
+    "last_opened_file_path": "C:/ADocuments/Python/CMS_Python",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\ADocuments\Python_framework\CMS_Python" />
@@ -49,7 +62,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_JHSC">
+  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
     <configuration name="api_list" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,38 +105,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_suit.test_full_training_program_creation_JHSC" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="CMS_Python_framework" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_suit.test_full_training_program_creation_JHSC&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_suit.test_full_training_program_creation_WAH" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="CMS_Python_framework" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_suit.test_full_training_program_creation_WAH&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest in test_full_functionality.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -142,10 +123,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.api_list" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_JHSC" />
         <item itemvalue="Python tests.pytest for test_suit.test_full_training_program_creation_WAH" />
         <item itemvalue="Python.new" />
-        <item itemvalue="Python.api_list" />
         <item itemvalue="Python tests.pytest in test_full_functionality.py" />
       </list>
     </recent_temporary>
