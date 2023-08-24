@@ -1,5 +1,5 @@
 import pytest
-from geneeral_functions_steps import *
+from funcs_training_program import *
 
 def test_full_training_program_creation_JHSC():
     print('Start')
