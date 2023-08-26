@@ -1,51 +1,5 @@
-import requests
-import api
-import pytest
-
-
-def add_Learning_Record_API_98393():
-    print('Add Learning Record API')
-    url = "https://private-anon-78376c118a-bluedrop360apiv2network.apiary-mock.com/api-v2/learning-records"
-    headers = {"Content-Type": "application/json"}
-    body = {
-      "learningRecordId": "4108123e-7f35-4097-928a-5bccd5fe4111",
-      "trainingStandardKey": "WAH-E-B",
-      "completionDate": "2018-11-21T22:38:15.000Z",
-      "networkKey": "pro-34616",
-      "externalClassId": "external-class-111",
-      "instructorNames": "Jane Doe; Dave Weir",
-      "evaluatorNames": "John Smith",
-      "learner": {
-        "uniqueId": "user-121",
-        "firstname": "Peter",
-        "lastname": "Johnson",
-        "personalEmail": "perter.johnson@example.com",
-        "birthYear": 1995,
-        "address": {
-          "street-address": "1230 Main Street",
-          "extended-address": "PO Box 1234",
-          "locality": "Toronto",
-          "region": "ON",
-          "postal-code": "M7A 1T7",
-          "country-name": "Canada"
-        },
-        "mobilePhone": "6047771234",
-        "homePhone": "7782225678"
-      }
-    }
-
-    response = requests.post(url, json=body, headers=headers)
-    print(response.status_code)  # 204
-    # print(response.json())
-    # print(response.text)
-
-add_Learning_Record_API_98393()
-
-# build SQL connection and check the records was created
-
 
 '''
-
 import mysql.connector
 db_name = 'users'
 query_create_new_table_with_items = """CREATE TABLE {} (
