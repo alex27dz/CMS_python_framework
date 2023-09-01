@@ -26,6 +26,9 @@ steps:
 
 
 # Step 3 - test files execution + HTML report and output in JUnit and HTML formats
+# Add - test_API testing run
+# Add - test_Performance testing run
+# Add - test_Database testing run
   - script: |
       pytest -v Tests/test_suit.py --junitxml=junit/test-results.xml --html=report.html
     displayName: 'Run tests + HTML report'
