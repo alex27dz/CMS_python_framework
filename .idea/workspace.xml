@@ -54,7 +54,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.new_api">
+  <component name="RunManager" selected="Python.new_sql_connector_microsoft">
     <configuration name="new_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,8 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.new_api" />
         <item itemvalue="Python.new_sql_connector_microsoft" />
+        <item itemvalue="Python.new_api" />
         <item itemvalue="Python.sql_connector" />
         <item itemvalue="Python.new_performance" />
         <item itemvalue="Python tests.pytest for new_api.test_get_user_data" />
