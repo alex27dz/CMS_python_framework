@@ -27,11 +27,22 @@ The response typically includes:
 Authentication:
 Many APIs require authentication to ensure only authorized users can access their resources.
 This is often done using tokens (API keys, access tokens, etc.) that are included in the request headers.
+
+
+Add the APIs here
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98391	1	CMS API: Online Offerings - Delete
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98387	2	CMS API: Online Offerings - Update (Patch)
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98383	3	CMS API: Online Offerings - Add
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98377	4	CMS API: Class Offerings - Delete
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98372	5	CMS API: Class Offerings - Update (Patch)
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98194	6	CMS API: Class Offerings - Add
 '''
+
 
 import requests
 import api
 import pytest
+
 def postman_API():
     print('Postman API')
     url = "http://postman-echo.com/get"
@@ -55,9 +66,7 @@ def postman_API():
     response = requests.get(url, json=body, headers=headers)
     print(response.status_code)  # 200 success
     # print(response.json())
-    # print(response.text)
-
-
+    print(response.text)
 def add_learning_record_api_98393():
     print('Add Learning Record API')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
@@ -97,17 +106,51 @@ def add_learning_record_api_98393():
     # print(response.json())
     print(response.text)
 add_learning_record_api_98393()
+def api_class_offerings_add_98194():
+    print('api_class_offerings_add')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+
+    body = {
+      "offeringId": "wah-2727",
+      "trainingStandardKey": "WAH-10083",
+      "deliveryMethod": "in-person",
+      "courseName": "Working At Heights",
+      "seatsRemaining": 5,
+      "contactForPricing": True,
+      "price": 100,
+      "address": {
+        "street-address": "1230 Main Street",
+        "extended-address": "PO Box 1234",
+        "locality": "Toronto",
+        "region": "ON",
+        "postal-code": "M7A 1T7",
+        "country-name": "Canada"
+      },
+      "events": [
+        {
+          "start": "2018-11-21T10:30:00.000Z",
+          "end": "2018-11-21T12:00:00.000Z"
+        }
+      ],
+      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+      "virtualClassUrl": "https://virtual-class-example.com/10001"
+    }
+
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    # print(response.json())
+    print(response.text)
+# api_class_offerings_add_98194()
 
 
-'''
-Add the APIs here
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98391	1	CMS API: Online Offerings - Delete
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98387	2	CMS API: Online Offerings - Update (Patch)
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98383	3	CMS API: Online Offerings - Add
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98377	4	CMS API: Class Offerings - Delete
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98372	5	CMS API: Class Offerings - Update (Patch)
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98194	6	CMS API: Class Offerings - Add
-'''
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/new_sql_connector_microsoft.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/new_sql_connector_microsoft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/new_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/new_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.new_sql_connector_microsoft">
+  <component name="RunManager" selected="Python.new_api">
     <configuration name="new_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,9 +157,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.new_api" />
         <item itemvalue="Python.new_sql_connector_microsoft" />
         <item itemvalue="Python.sql_connector" />
-        <item itemvalue="Python.new_api" />
         <item itemvalue="Python.new_performance" />
         <item itemvalue="Python tests.pytest for new_api.test_get_user_data" />
       </list>
