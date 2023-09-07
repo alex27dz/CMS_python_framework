@@ -105,6 +105,7 @@ def add_class_offerings_98194():
     print(response.status_code)  # 204
     # print(response.json())
     print(response.text)
+    return response.text
 # add_class_offerings_98194()
 
 def add_learning_record_api_98393():
@@ -145,7 +146,7 @@ def add_learning_record_api_98393():
     print(response.status_code)  # 204
     # print(response.json())
     print(response.text)
-
+    return response.text
 # add_learning_record_api_98393()
 
 

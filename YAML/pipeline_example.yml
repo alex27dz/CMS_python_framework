@@ -1,9 +1,8 @@
-# Name of our source code branch
+# Name of our source code branch - updated branch
 trigger:
-  - cloud
+  - updated
 
-# Pool of VMs for execution  - Azure Pipelines   pool: LTC.OMSB.VMSS.Shared
-pool: Azure Pipelines
+pool: Azure Pipelines  # Pool of VMs for execution  - Azure Pipelines
 
 
 steps:
@@ -18,19 +17,26 @@ steps:
       pip install -r YAML/requirements.txt
       pip install Functions
       pip install pytest-html
-
-    displayName: 'Install Requirements'
     # python -m pip install pytest
     # python -m pytest
-
+    displayName: 'Installing required packages'
 
 
 # Step 3 - test files execution + HTML report and output in JUnit and HTML formats
-# Add - test_API testing run
-# Add - test_Performance testing run
-# Add - test_Database testing run
   - script: |
       pytest -v Tests/test_suit.py --junitxml=junit/test-results.xml --html=report.html
-    displayName: 'Run tests + HTML report'
+    displayName: 'Full functionality - testing + HTML report'
+
+  - script: |
+      pytest -v Tests/test_api.py --junitxml=junit/test-results.xml --html=report.html
+    displayName: 'API - testing + HTML report'
+
+  - script: |
+      pytest -v Tests/test_db.py --junitxml=junit/test-results.xml --html=report.html
+    displayName: 'Database - testing + HTML report'
+
+  - script: |
+      pytest -v Tests/test_performance.py --junitxml=junit/test-results.xml --html=report.html
+    displayName: 'Performance - testing + HTML report'
 
 
