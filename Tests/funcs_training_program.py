@@ -62,11 +62,17 @@ def logging(user, password):
     return True
 def subbmittionoftrainingprogram(program):
     wait = WebDriverWait(driver, 60)
-    submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[1]/app-page-content-loop/app-grey-text-box-sidebar/div/div[1]/h3')))
+    # submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[1]/app-page-content-loop/app-grey-text-box-sidebar/div/div[1]/h3')))
+
+    submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[3]/button')))
+    time.sleep(10)
     submitnewtraining.click()  # Perform further actions with the element, such as clicking it or extracting its text
     time.sleep(delay)
-    select_program = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')
-    wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')))
+    # //*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select
+    select_program = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select')
+    wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[2]/div/app-dropdown/select')))
+    # select_program = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')
+    # wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[2]/div/div[1]/div[4]/button')))
     select_program.click()
     time.sleep(delay)
     prog = driver.find_element(By.XPATH, program)
