@@ -24,8 +24,17 @@ import requests
 import api
 import pytest
 
-
-def add_class_offerings_98194():
+def api_01_delete_online_offerings_98391():
+    print('hi')
+def api_02_update_online_offerings_98387():
+    print('hi')
+def api_03_add_online_offerings_98383():
+    print('hi')
+def api_04_delete_class_offerings_98377():
+    print('hi')
+def api_05_update_class_offerings_98372():
+    print('hi')
+def api_06_add_class_offerings_98194():
     print('api_class_offerings_add')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
     headers = {
@@ -64,9 +73,7 @@ def add_class_offerings_98194():
     # print(response.json())
     print(response.text)
     return response.text
-# add_class_offerings_98194()
-
-def add_learning_record_api_98393():
+def api_07_add_learning_record_98393():
     print('Add Learning Record API')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
     headers = {
@@ -105,7 +112,7 @@ def add_learning_record_api_98393():
     # print(response.json())
     print(response.text)
     return response.text
-# add_learning_record_api_98393()
+
 
 
 
