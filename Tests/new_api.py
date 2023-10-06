@@ -25,15 +25,20 @@ import api
 import pytest
 
 def api_01_delete_online_offerings_98391():
-    print('hi')
+# https://netsdc.visualstudio.com/SDC/_workitems/edit/98391
+    print('test')
 def api_02_update_online_offerings_98387():
-    print('hi')
+# https://netsdc.visualstudio.com/SDC/_workitems/edit/98387
+    print('test')
 def api_03_add_online_offerings_98383():
-    print('hi')
+# https://netsdc.visualstudio.com/SDC/_workitems/edit/98383
+    print('test')
 def api_04_delete_class_offerings_98377():
-    print('hi')
+# https://netsdc.visualstudio.com/SDC/_workitems/edit/98377
+    print('test')
 def api_05_update_class_offerings_98372():
-    print('hi')
+# https://netsdc.visualstudio.com/SDC/_workitems/edit/98372
+    print('test')
 def api_06_add_class_offerings_98194():
     print('api_class_offerings_add')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
@@ -112,10 +117,6 @@ def api_07_add_learning_record_98393():
     # print(response.json())
     print(response.text)
     return response.text
-
-
-
-
 
 
 
