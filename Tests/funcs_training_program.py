@@ -351,13 +351,14 @@ def uploadfiles():
     print('Box 1')  # Box 1
     upload = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[1]/div[1]/h5')
     driver.execute_script("arguments[0].scrollIntoView();", upload)  # Scrolling to the upload section
-    box = driver.find_element(By.XPATH, '//*[@id="description"]')
+    box = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[1]/div[3]/app-compliance-details/div/div[1]/textarea')
     box.click()
     box.send_keys('1')
-    page = driver.find_element(By.XPATH, '//*[@id="page-number"]')
+    page = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[1]/div[3]/app-compliance-details/div/div[2]/div[2]/input')
     page.click()
+    # //*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[1]/div[3]/app-compliance-details/div/div[2]/div[2]/input
     page.send_keys('1')
-    desc = driver.find_element(By.XPATH, '//*[@id="doc-link"]')
+    desc = driver.find_element(By.XPATH, '//*[@id="reqs-tab"]/div/div/app-requirements-section-list/app-requirements-input[1]/div/div/div/div[1]/div[3]/app-compliance-details/div/div[2]/div[1]/input')
     desc.click()
     desc.send_keys('LessonPlan/DevOps.jpg')
     time.sleep(short_delay)
@@ -4322,7 +4323,6 @@ def uploadfiles():
     return True
 def applicationreview():
     print('Application Review')
-    print('stopped')
     time.sleep(long_delay)
     cert = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]')
     print('Certification: ', cert.text)
@@ -4338,7 +4338,7 @@ def submitapp():
     cert2 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]')
     driver.execute_script("arguments[0].scrollIntoView();", cert2)
     time.sleep(delay)
-    checkbox = driver.find_element(By.XPATH, '/html/body/app-root/main/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]/div[2]/app-checkbox/div/label')
+    checkbox = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-review-program-application/div/div[2]/div[2]/div[2]/app-checkbox/div/input')
     checkbox.click()
     print('checkbox clicked')
     time.sleep(delay)

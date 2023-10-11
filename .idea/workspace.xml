@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="" />
+    <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/funcs_training_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/funcs_training_program.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +54,7 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.new_sql_connector_microsoft">
+  <component name="RunManager" selected="Python tests.pytest for test_suit.test_full_training_program_creation_WAH">
     <configuration name="new_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
