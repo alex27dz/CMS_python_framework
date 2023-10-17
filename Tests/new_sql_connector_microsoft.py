@@ -19,7 +19,8 @@ def sql_microsoft_connector():
     print(cursor)  # connection
     cursor.close()  # Close the cursor and connection when done
     connection.close()
-# sql_microsoft_connector()
+
+
 
 
 

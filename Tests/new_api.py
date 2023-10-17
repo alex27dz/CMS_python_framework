@@ -75,8 +75,7 @@ def api_06_add_class_offerings_98194():
 
     response = requests.post(url, json=body, headers=headers)
     print(response.status_code)  # 204
-    # print(response.json())
-    print(response.text)
+    print(response.text)  # print(response.json())
     return response.text
 def api_07_add_learning_record_98393():
     print('Add Learning Record API')
@@ -114,8 +113,7 @@ def api_07_add_learning_record_98393():
 
     response = requests.post(url, json=body, headers=headers)
     print(response.status_code)  # 204
-    # print(response.json())
-    print(response.text)
+    print(response.text)  # print(response.json())
     return response.text
 
 

@@ -28,7 +28,7 @@ def mysql_connector():
         print(row)
     cursor.close()  # Close the cursor and connection when done
     conn.close()
-# mysql_connector()
+
 
 
 
