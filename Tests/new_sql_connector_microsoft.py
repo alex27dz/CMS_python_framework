@@ -21,6 +21,14 @@ def sql_microsoft_connector():
     connection.close()
 
 
+sql_microsoft_connector()
+
+
+
+
+
+
+
 
 
 
