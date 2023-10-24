@@ -18,27 +18,98 @@ The response typically includes:
 Authentication:
 Many APIs require authentication to ensure only authorized users can access their resources.
 This is often done using tokens (API keys, access tokens, etc.) that are included in the request headers.
+1
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98391
+https://bluedrop360apiv2network.docs.apiary.io/#reference/online-offerings/online-offering/delete-an-online-offering
+2
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98387
+https://bluedrop360apiv2network.docs.apiary.io/#reference/online-offerings/online-offering/patch-an-online-offering
+3
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98383
+https://bluedrop360apiv2network.docs.apiary.io/#reference/online-offerings/add-online-offering/add-an-online-offering
+4
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98377
+https://bluedrop360apiv2network.docs.apiary.io/#reference/class-offerings/class-offering/delete-a-class-offering
+5
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98372
+https://bluedrop360apiv2network.docs.apiary.io/#reference/class-offerings/class-offering/patch-a-class-offering
 '''
 
 import requests
 import api
 import pytest
 
+
 def api_01_delete_online_offerings_98391():
-# https://netsdc.visualstudio.com/SDC/_workitems/edit/98391
-    print('test')
+    print('api_delete_online_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {}
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+
+
 def api_02_update_online_offerings_98387():
-# https://netsdc.visualstudio.com/SDC/_workitems/edit/98387
-    print('test')
+    print('')
+    url = ""
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {}
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+
+
 def api_03_add_online_offerings_98383():
-# https://netsdc.visualstudio.com/SDC/_workitems/edit/98383
-    print('test')
+    print('')
+    url = ""
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {}
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+
+
 def api_04_delete_class_offerings_98377():
-# https://netsdc.visualstudio.com/SDC/_workitems/edit/98377
-    print('test')
+    print('')
+    url = ""
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {}
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+
+
 def api_05_update_class_offerings_98372():
-# https://netsdc.visualstudio.com/SDC/_workitems/edit/98372
-    print('test')
+    print('')
+    url = ""
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {}
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+
+
 def api_06_add_class_offerings_98194():
     print('api_class_offerings_add')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
@@ -77,6 +148,8 @@ def api_06_add_class_offerings_98194():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 def api_07_add_learning_record_98393():
     print('Add Learning Record API')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
@@ -115,14 +188,6 @@ def api_07_add_learning_record_98393():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
-
-
-
-
-
-
-
 
 
 
