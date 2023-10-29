@@ -78,11 +78,8 @@ def subbmittionoftrainingprogram(program):
     time.sleep(delay)
     elearning = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[6]/label')
     elearning.click()
-
     # blended = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[3]/label')
     # blended.click()
-    time.sleep(delay)
-
     # wait = WebDriverWait(driver, 60)
     # inclass = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[4]/label')))
     # inclass.click()
@@ -137,6 +134,13 @@ def checkboxes(type):
     driver.execute_script("arguments[0].scrollIntoView();", yes7)
     yes7.click()
     time.sleep(short_delay)
+    try:
+        yes75 = driver.find_element(By.XPATH,'//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-provider-attestation/div/div[2]/div[3]/app-tabs/div/div[2]/app-tab[1]/div/div[3]/div/div[8]/div/app-radio-button-list/div[2]/label')
+        driver.execute_script("arguments[0].scrollIntoView();", yes75)
+        yes75.click()
+        time.sleep(short_delay)
+    except:
+        print('not an elearnning class')
     yes8 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-provider-attestation/div/div[2]/div[3]/app-tabs/div/div[2]/app-tab[1]/div/div[4]/div/div[1]/div/app-radio-button-list[1]/div[2]/label')
     driver.execute_script("arguments[0].scrollIntoView();", yes8)
     yes8.click()
@@ -212,6 +216,22 @@ def checkboxes(type):
         time.sleep(short_delay)
     except:
         print('WAH type')
+    try:
+        print('elearning 6.3')
+        yes133 = driver.find_element(By.XPATH,'//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-provider-attestation/div/div[2]/div[3]/app-tabs/div/div[2]/app-tab[2]/div/div/div[3]/div/div[3]/div/app-radio-button-list[1]/div[2]/label')
+        driver.execute_script("arguments[0].scrollIntoView();", yes133)
+        yes133.click()
+        time.sleep(short_delay)
+    except:
+        print('not found')
+    try:
+        print('elearning 6.4')
+        yes134 = driver.find_element(By.XPATH,'//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-provider-attestation/div/div[2]/div[3]/app-tabs/div/div[2]/app-tab[2]/div/div/div[3]/div/div[3]/div/app-radio-button-list[2]/div[2]/label')
+        driver.execute_script("arguments[0].scrollIntoView();", yes134)
+        yes134.click()
+        time.sleep(short_delay)
+    except:
+        print('not found')
     try:
         print('second page - 6.1')
         yes17 = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-new-program-application/div/div/div/app-training-provider-attestation/div/div[2]/div[3]/app-tabs/div/div[2]/app-tab[2]/div/div/div[4]/div/div[1]/div/app-radio-button-list/div[2]/label')
@@ -4353,6 +4373,7 @@ def successcheck():
     except:
         sucess = driver.find_element(By.XPATH, '/html/body/app-root/main/app-training-provider-registration-confirmation/div/div[2]/div/div[2]/app-alert-banner/div/div/div[2]')
         print(sucess.text)
+    driver.save_screenshot("submitted_program_check.png")
     return True
 def programid():  # need to be updated
     time.sleep(delay)

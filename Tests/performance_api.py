@@ -3,6 +3,7 @@ import pytest
 import requests
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
+import api
 
 '''
 * Volume Testing - To assess how a system handles a large volume of data. This type of testing helps evaluate how the system manages data storage, processing, and retrieval when dealing with a substantial amount of data. It aims to identify potential issues such as data overflow, data corruption, and performance degradation.
@@ -11,146 +12,415 @@ from datetime import datetime
 * Load Testing - To measure how the system behaves under expected load conditions, Script Description: Load testing simulates typical user loads or requests to assess the system's performance under standard usage scenarios, This test focuses on evaluating whether the system consistently meets predefined performance criteria, including response times, resource utilization, and throughput. It aims to ensure a reliable and satisfactory user experience under expected loads.
 * Latency Testing - To measure the time it takes for the API to respond to requests, Script Description: Records the time it takes to receive a response for each API request.
 * Throughput Testing - To assess the number of requests the API can process within a specific time frame, Script Description: Measures how many requests the API can handle in a given time period.
-* Data Validation
+* Data Validation - 
 * Endurance Testing - Evaluate the API's performance over an extended period to check for memory leaks, resource consumption, and performance degradation
 * Spike Testing - Assess how the API performs when subjected to sudden and extreme changes in load or traffic
 * Scalability Testing - Test how the API scales with an increase in resources, such as servers or nodes, to accommodate growing traffic
 * Reliability Testing - Evaluate the API's ability to handle requests over an extended period without failure.
 '''
 
-API_ENDPOINT = ""
 
 
-# * Volume Testing
-@pytest.mark.performance_api
-def test_volume_api():
-    print('Volume testing')
+# Data validation
+# DELETE - online offering - offeringId, Result - Course, ElectronicAddressOwnership, & ElectronicAddress - deleted
+def api_01_data_delete_online_offering_98391():
+    print('01_delete_online_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"  # YOUR OFFERING ID HERE
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    body = {
+      "offeringId": "ae555337-ca58-46a1-9471-a323a3dbdc85"
+    }
+    response = requests.delete(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# UPDATE - online offering
+def api_02_data_update_online_offering_98387():
+    print('02_update_online_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "courseName": "Working At Heights E-Learning",
+      "price": 100,
+      "courseDuration": 2.5,
+      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
+    }
+    response = requests.patch(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# ADD - online offering
+def api_03_data_add_online_offering_98383():
+    print('03_add_online_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "offeringId": "wah-111",
+      "trainingStandardKey": "WAH-E-B-O",
+      "courseName": "Working At Heights",
+      "price": 100,
+      "courseDuration": 2.5,
+      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
+    }
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# DELETE - class offering
+def api_04_data_delete_class_offering_98377():
+    print('04_delete_class_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    body = {
+      "offeringId": "external-class-id"
+    }
+    response = requests.delete(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# UPDATE - class offering
+def api_05_data_update_class_offering_98372():
+    print('05_update_class_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "courseName": "Working At Heights",
+      "seatsRemaining": 5,
+      "contactForPricing": True,
+      "price": 100,
+      "address": {
+        "street-address": "1230 Main Street",
+        "extended-address": "PO Box 1234",
+        "locality": "Toronto",
+        "region": "ON",
+        "postal-code": "M7A 1T7",
+        "country-name": "Canada"
+      },
+      "events": [
+        {
+          "start": "2018-11-21T10:30:00.000Z",
+          "end": "2018-11-21T12:00:00.000Z"
+        }
+      ],
+      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+      "virtualClassUrl": "https://virtual-class-example.com/10001"
+    }
+    response = requests.patch(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# ADD - class offering
+def api_06_data_add_class_offering_98194():
+    print('06_add_class_offering')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "offeringId": "wah-999",
+      "trainingStandardKey": "WAH-10083",
+      "deliveryMethod": "in-person",
+      "courseName": "Working At Heights",
+      "seatsRemaining": 5,
+      "contactForPricing": True,
+      "price": 100,
+      "address": {
+        "street-address": "1230 Main Street",
+        "extended-address": "PO Box 1234",
+        "locality": "Toronto",
+        "region": "ON",
+        "postal-code": "M7A 1T7",
+        "country-name": "Canada"
+      },
+      "events": [
+        {
+          "start": "2023-09-05T10:30:00.000Z",
+          "end": "2023-09-05T12:00:00.000Z"
+        }
+      ],
+      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+      "virtualClassUrl": "https://virtual-class-example.com/10001"
+    }
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# ADD - learning record
+# Creating a class using API
+# Looking for the same class created by API - same date from the list
+# View classroom > submitted records
+def api_07_data_add_learning_record_98393():
+    print('07_add_learning_record')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "learningRecordId": "4108123e-7f35-4097-928a-5bccd5fe4111",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-09-05T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-999",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-999",
+        "firstname": "Peter",
+        "lastname": "Johnson",
+        "personalEmail": "perter.johnson@example.com",
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
 
 
-# * Load Testing
-@pytest.mark.performance_api
-def test_load_api():
-    for _ in range(1000):
-        response = requests.get(API_ENDPOINT)
-        assert response.status_code == 200
 
 
-# Capacity Testing
-@pytest.mark.performance_api
-def test_capacity_api():
-    import requests
-    import threading
-
-    # Define the API endpoint you want to test
-    api_endpoint = "https://example.com/api/endpoint"
-
-    # Define the number of concurrent users (threads)
-    num_concurrent_users = 50
-
-    # Function to make API requests
-    def make_api_requests(user_id):
-        for _ in range(20):  # Define the number of requests each user should send
-            response = requests.get(api_endpoint)
-            # You can add assertions to check the response status code or content
-            if response.status_code != 200:
-                print(f"User {user_id}: Response code is not 200")
-
-    # Create threads to simulate concurrent users
-    threads = []
-    for user_id in range(num_concurrent_users):
-        thread = threading.Thread(target=make_api_requests, args=(user_id,))
-        threads.append(thread)
-
-    # Start the threads
-    for thread in threads:
-        thread.start()
-
-    # Wait for all threads to complete
-    for thread in threads:
-        thread.join()
+# Latency
 
 
-# Stress Testing
-@pytest.mark.performance_api
-def test_stress_api():
-    for _ in range(5000):
-        response = requests.get(API_ENDPOINT)
-        assert response.status_code == 200
+def api_08_response_delete_online_offering_98391():
+    print('01_response_delete_online_offering')
+    num_requests = 10  # Number of requests to send for testing
+    max_response_time = 0
+    total_response_time = 0
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"  # YOUR OFFERING ID HERE
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    body = {
+      "offeringId": "ae555337-ca58-46a1-9471-a323a3dbdc85"
+    }
+    for i in range(num_requests):
+        start_time = time.time()
+        response = requests.delete(url, json=body, headers=headers)
+        print(response.status_code)  # 204
+        print(response.text)  # print(response.json())
+        end_time = time.time()
+        response_time = end_time - start_time
+        total_response_time += response_time
+        if response_time > max_response_time:
+            max_response_time = response_time
+    average_response_time = total_response_time / num_requests
+    print('Number of requests ', num_requests)
+    print('Average response time ', average_response_time)
+    print('Maximum response time ', max_response_time)
 
 
-# Latency Testing
-@pytest.mark.performance_api
-def test_latency_api():
-    print('Latency Testing')
 
+# stopped here
+def api_09_response_update_online_offering_98387():
+    print('02_update_online_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "courseName": "Working At Heights E-Learning",
+      "price": 100,
+      "courseDuration": 2.5,
+      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
+    }
+    response = requests.patch(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+def api_10_response_add_online_offering_98383():
+    print('03_add_online_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "offeringId": "wah-111",
+      "trainingStandardKey": "WAH-E-B-O",
+      "courseName": "Working At Heights",
+      "price": 100,
+      "courseDuration": 2.5,
+      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
+    }
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+def api_11_response_delete_class_offering_98377():
+    print('04_delete_class_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    body = {
+      "offeringId": "external-class-id"
+    }
+    response = requests.delete(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+def api_12_response_update_class_offering_98372():
+    print('05_update_class_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "courseName": "Working At Heights",
+      "seatsRemaining": 5,
+      "contactForPricing": True,
+      "price": 100,
+      "address": {
+        "street-address": "1230 Main Street",
+        "extended-address": "PO Box 1234",
+        "locality": "Toronto",
+        "region": "ON",
+        "postal-code": "M7A 1T7",
+        "country-name": "Canada"
+      },
+      "events": [
+        {
+          "start": "2018-11-21T10:30:00.000Z",
+          "end": "2018-11-21T12:00:00.000Z"
+        }
+      ],
+      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+      "virtualClassUrl": "https://virtual-class-example.com/10001"
+    }
+    response = requests.patch(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+def api_13_response_add_class_offering_98194():
+    print('06_add_class_offering')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "offeringId": "wah-999",
+      "trainingStandardKey": "WAH-10083",
+      "deliveryMethod": "in-person",
+      "courseName": "Working At Heights",
+      "seatsRemaining": 5,
+      "contactForPricing": True,
+      "price": 100,
+      "address": {
+        "street-address": "1230 Main Street",
+        "extended-address": "PO Box 1234",
+        "locality": "Toronto",
+        "region": "ON",
+        "postal-code": "M7A 1T7",
+        "country-name": "Canada"
+      },
+      "events": [
+        {
+          "start": "2023-09-05T10:30:00.000Z",
+          "end": "2023-09-05T12:00:00.000Z"
+        }
+      ],
+      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+      "virtualClassUrl": "https://virtual-class-example.com/10001"
+    }
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+def api_14_response_add_learning_record_98393():
+    print('07_add_learning_record')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "learningRecordId": "4108123e-7f35-4097-928a-5bccd5fe4111",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-09-05T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-999",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-999",
+        "firstname": "Peter",
+        "lastname": "Johnson",
+        "personalEmail": "perter.johnson@example.com",
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+    response = requests.post(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
 
-# Throughput Testing
-@pytest.mark.performance_api
-def test_throughput_api():
-    start_time = time.time()
-    for _ in range(num_iterations):
-        response = requests.get(api_endpoint)
-        if response.status_code != 200:
-            print("Throughput Test: Response code is not 200")
-    end_time = time.time()
-    throughput_test_time = end_time - start_time
-
-
-# Data Validation
-@pytest.mark.performance_api
-def test_data_validation():
-    response = requests.post(API_ENDPOINT + "/validate", json='data input')
-    assert response.status_code == 200, "Data validation failed"
-
-
-# Endurance Testing
-@pytest.mark.performance_api
-def test_endurance_api():
-    api_endpoint = "https://example.com/api/endpoint"
-    test_duration_seconds = 3600  # Test for 1 hour
-
-    start_time = time.time()
-    end_time = start_time + test_duration_seconds
-    while time.time() < end_time:
-        response = requests.get(api_endpoint)
-        if response.status_code != 200:
-            print("Endurance Test: Response code is not 200")
-
-
-# Spike Testing
-@pytest.mark.performance_api
-def test_spike_api():
-    api_endpoint = "https://example.com/api/endpoint"
-    num_requests = 500
-
-    for _ in range(num_requests):
-        response = requests.get(api_endpoint)
-        if response.status_code != 200:
-            print("Spike Test: Response code is not 200")
-
-
-# Scalability Testing
-@pytest.mark.performance_api
-def test_scalability_api():
-    api_endpoint = "https://example.com/api/endpoint"
-    num_requests = 1000  # Increase server resources
-
-    for _ in range(num_requests):
-        response = requests.get(api_endpoint)
-        if response.status_code != 200:
-            print("Scalability Test: Response code is not 200")
-
-
-# Reliability Testing
-@pytest.mark.performance_api
-def test_reliability_api():
-    api_endpoint = "https://example.com/api/endpoint"
-    test_duration_seconds = 3600  # Test for 1 hour
-
-    while True:
-        response = requests.get(api_endpoint)
-        if response.status_code != 200:
-            print("Reliability Test: Response code is not 200")
+def api_15_response_times():
+    print('response times')
+    num_requests = 10  # Number of requests to send for testing
+    max_response_time = 0
+    total_response_time = 0
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"  # YOUR OFFERING ID HERE
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+    for i in range(num_requests):
+        start_time = time.time()
+        response = requests.get(url, headers=headers)
+        print(response.status_code)  # 204
+        print(response.text)  # print(response.json())
+        end_time = time.time()
+        response_time = end_time - start_time
+        total_response_time += response_time
+        if response_time > max_response_time:
+            max_response_time = response_time
+    average_response_time = total_response_time / num_requests
+    print('Number of requests ', num_requests)
+    print('Average response time ', average_response_time)
+    print('Maximum response time ', max_response_time)
 
 
 
