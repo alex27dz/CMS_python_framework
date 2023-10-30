@@ -234,6 +234,8 @@ def api_07_add_learning_record_98393():
     return response.text
 
 
+
+# Negative scenarios
 # DELETE - online offering - offeringId, Result - Course, ElectronicAddressOwnership, & ElectronicAddress - deleted
 def api_08_negative_delete_online_offering_98391():
     print('01_delete_online_offerings')
