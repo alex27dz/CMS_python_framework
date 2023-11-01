@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/performance_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/performance_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/sql_connector_microsoft.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/sql_connector_microsoft.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +56,8 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sql_connector_microsoft">
-    <configuration name="new_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.api">
+    <configuration name="api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -67,7 +69,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/new_api.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/api.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.api" />
         <item itemvalue="Python.sql_connector_microsoft" />
         <item itemvalue="Python.performance_api" />
         <item itemvalue="Python tests.pytest in performance_api.py" />
         <item itemvalue="Python tests.pytest for test_suit_ui.test_full_training_program_creation_JHSC" />
-        <item itemvalue="Python.new_api" />
       </list>
     </recent_temporary>
   </component>

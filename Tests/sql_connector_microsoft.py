@@ -24,6 +24,37 @@ def sql_microsoft_connector():
 sql_microsoft_connector()
 
 
+'''
+Training providers
+SELECT TOP (1000) [ApplicantBusinessId]
+      ,[TrainingProviderRegistrationId]
+      ,[OperatingName]
+      ,[LegalName]
+      ,[BusinessNumber]
+      ,[BusinessType]
+      ,[WSIBAccountNumber]
+      ,[CreatedDate]
+      ,[LastUpdateDate]
+      ,[CreatedBy]
+      ,[UpdatedBy]
+      ,[CorrespondenceOptionId]
+  FROM [dbo].[TrainingProviderApplicantBusinesses]
+'''
+
+'''
+Class offerings
+SELECT TOP (1000) [ClassOfferingId]
+      ,[CourseId]
+      ,[StartDate]
+      ,[EndDate]
+      ,[CreatedDate]
+      ,[LastUpdateDate]
+      ,[CreatedBy]
+      ,[UpdatedBy]
+  FROM [dbo].[ClassOfferings]
+'''
+
+
 
 
 

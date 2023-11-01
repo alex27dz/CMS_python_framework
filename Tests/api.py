@@ -61,7 +61,6 @@ def api_01_delete_online_offering_98391():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # UPDATE - online offering
 def api_02_update_online_offering_98387():
     print('02_update_online_offerings')
@@ -80,7 +79,6 @@ def api_02_update_online_offering_98387():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # ADD - online offering
 def api_03_add_online_offering_98383():
     print('03_add_online_offerings')
@@ -101,7 +99,6 @@ def api_03_add_online_offering_98383():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # DELETE - class offering
 def api_04_delete_class_offering_98377():
     print('04_delete_class_offerings')
@@ -117,7 +114,6 @@ def api_04_delete_class_offering_98377():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # UPDATE - class offering
 def api_05_update_class_offering_98372():
     print('05_update_class_offerings')
@@ -152,7 +148,6 @@ def api_05_update_class_offering_98372():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # ADD - class offering
 def api_06_add_class_offering_98194():
     print('06_add_class_offering')
@@ -190,7 +185,6 @@ def api_06_add_class_offering_98194():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # ADD - learning record
 # Creating a class using API
 # Looking for the same class created by API - same date from the list
@@ -235,6 +229,9 @@ def api_07_add_learning_record_98393():
 
 
 
+
+
+
 # Negative scenarios
 # DELETE - online offering - offeringId, Result - Course, ElectronicAddressOwnership, & ElectronicAddress - deleted
 def api_08_negative_delete_online_offering_98391():
@@ -251,7 +248,6 @@ def api_08_negative_delete_online_offering_98391():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # UPDATE - online offering
 def api_09_negative_update_online_offering_98387():
     print('02_update_online_offerings')
@@ -270,7 +266,6 @@ def api_09_negative_update_online_offering_98387():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # ADD - online offering
 def api_10_negative_add_online_offering_98383():
     print('03_add_online_offerings')
@@ -291,7 +286,6 @@ def api_10_negative_add_online_offering_98383():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # DELETE - class offering
 def api_11_negative_delete_class_offering_98377():
     print('04_delete_class_offerings')
@@ -307,7 +301,6 @@ def api_11_negative_delete_class_offering_98377():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # UPDATE - class offering
 def api_12_negative_update_class_offering_98372():
     print('05_update_class_offerings')
@@ -342,7 +335,6 @@ def api_12_negative_update_class_offering_98372():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # ADD - class offering
 def api_13_negative_add_class_offering_98194():
     print('06_add_class_offering')
@@ -380,7 +372,6 @@ def api_13_negative_add_class_offering_98194():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-
 # ADD - learning record
 # Creating a class using API
 # Looking for the same class created by API - same date from the list
