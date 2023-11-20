@@ -1,7 +1,6 @@
 import requests
 import api
 import pytest
-
 '''
 API requests are the mechanisms by which one software application sends a request to another application's API to perform certain actions or retrieve specific information
 Components of an API Request:
@@ -35,9 +34,11 @@ https://netsdc.visualstudio.com/SDC/_workitems/edit/98377
 5
 https://netsdc.visualstudio.com/SDC/_workitems/edit/98372
 6
-https://netsdc.visualstudio.com/SDC/_workitems/edit/98194/
+https://netsdc.visualstudio.com/SDC/_workitems/edit/98194
 7
 https://netsdc.visualstudio.com/SDC/_workitems/edit/98393
+
+SSO - https://netsdc.visualstudio.com/SDC/_workitems/edit/108195
 
 * Online offering = Class inside 'my training schedules' list 'Elearning'	https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/training-provider/training-schedules
 * Class offerings	https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/training-provider/training-schedules
@@ -45,6 +46,7 @@ https://netsdc.visualstudio.com/SDC/_workitems/edit/98393
 * Course marketplace	https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/marketplace/course-search 
 
 '''
+
 
 # DELETE - online offering - offeringId, Result - Course, ElectronicAddressOwnership, & ElectronicAddress - deleted
 def api_01_delete_online_offering_98391():
@@ -61,6 +63,8 @@ def api_01_delete_online_offering_98391():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # UPDATE - online offering
 def api_02_update_online_offering_98387():
     print('02_update_online_offerings')
@@ -79,12 +83,15 @@ def api_02_update_online_offering_98387():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # ADD - online offering
 def api_03_add_online_offering_98383():
-    print('03_add_online_offerings')
+    print('03_add_online_offering')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNTQ5OWMwOTA2ZWE0YmE1OTc5YzdlNDk4YWZlODczOSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE2OTk5ODY1MjksImV4cCI6MTcwMDAyOTcyOSwiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.OCNhiLbRLJqICJpZzh7pzB1Aj5ocJLK3kHrU6e2_b66Epr_Fjd6R1mtSiU_vr8JurhcGNAgmckiFYhKa0OTeX6Bsk3dQRqs17fpvUHqJuq3DdCXW8DETzLtyMYuesumJGs8N8KDF6hnNTVJFbOrDA7V7diXAlPgPfgmmFap9laIopzwR85Gtv0ibMAMGHMwocBF6BCuAM6YXtL_8nQodyR6LxmcVxwIlLyYUmtEeDoJN5s-otHJrZbCe4S2LeWzXcpVoAkDG0FbBDGDirLZ8HeMTSH5FGNvmKmI-t2KLH5STXtR1QoAG6_bWqufcXLfHL3hHrY5MrgaKAaRmoeN_Dw",
+        'Network': 'FA3DD3FC-8602-4521-B2CB-24670B20626C',
         "Content-Type": "application/json"
     }
     body = {
@@ -99,6 +106,8 @@ def api_03_add_online_offering_98383():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # DELETE - class offering
 def api_04_delete_class_offering_98377():
     print('04_delete_class_offerings')
@@ -114,6 +123,8 @@ def api_04_delete_class_offering_98377():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # UPDATE - class offering
 def api_05_update_class_offering_98372():
     print('05_update_class_offerings')
@@ -148,34 +159,37 @@ def api_05_update_class_offering_98372():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # ADD - class offering
 def api_06_add_class_offering_98194():
     print('06_add_class_offering')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNTQ5OWMwOTA2ZWE0YmE1OTc5YzdlNDk4YWZlODczOSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE2OTk5ODY1MjksImV4cCI6MTcwMDAyOTcyOSwiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.OCNhiLbRLJqICJpZzh7pzB1Aj5ocJLK3kHrU6e2_b66Epr_Fjd6R1mtSiU_vr8JurhcGNAgmckiFYhKa0OTeX6Bsk3dQRqs17fpvUHqJuq3DdCXW8DETzLtyMYuesumJGs8N8KDF6hnNTVJFbOrDA7V7diXAlPgPfgmmFap9laIopzwR85Gtv0ibMAMGHMwocBF6BCuAM6YXtL_8nQodyR6LxmcVxwIlLyYUmtEeDoJN5s-otHJrZbCe4S2LeWzXcpVoAkDG0FbBDGDirLZ8HeMTSH5FGNvmKmI-t2KLH5STXtR1QoAG6_bWqufcXLfHL3hHrY5MrgaKAaRmoeN_Dw",
+        'key': 'FA3DD3FC-8602-4521-B2CB-24670B20626C',
         "Content-Type": "application/json"
     }
     body = {
-      "offeringId": "wah-999",
+      "offeringId": "wah-379",
       "trainingStandardKey": "WAH-10083",
       "deliveryMethod": "in-person",
-      "courseName": "Working At Heights",
-      "seatsRemaining": 5,
-      "contactForPricing": True,
-      "price": 100,
+      "courseName": "Working At Heights Alex",
+      "seatsRemaining": 8,
+      "contactForPricing": False,
+      "price": 200,
       "address": {
-        "street-address": "1230 Main Street",
+        "street-address": "169 fort york",
         "extended-address": "PO Box 1234",
         "locality": "Toronto",
         "region": "ON",
-        "postal-code": "M7A 1T7",
+        "postal-code": "M5V 0C8",
         "country-name": "Canada"
       },
       "events": [
         {
-          "start": "2023-09-05T10:30:00.000Z",
-          "end": "2023-09-05T12:00:00.000Z"
+          "start": "2023-11-14T10:30:00.000Z",
+          "end": "2023-11-20T12:00:00.000Z"
         }
       ],
       "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
@@ -185,6 +199,15 @@ def api_06_add_class_offering_98194():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
+
+
+
+
+
+
+
 # ADD - learning record
 # Creating a class using API
 # Looking for the same class created by API - same date from the list
@@ -193,7 +216,8 @@ def api_07_add_learning_record_98393():
     print('07_add_learning_record')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNTQ5OWMwOTA2ZWE0YmE1OTc5YzdlNDk4YWZlODczOSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE2OTk5ODY1MjksImV4cCI6MTcwMDAyOTcyOSwiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.OCNhiLbRLJqICJpZzh7pzB1Aj5ocJLK3kHrU6e2_b66Epr_Fjd6R1mtSiU_vr8JurhcGNAgmckiFYhKa0OTeX6Bsk3dQRqs17fpvUHqJuq3DdCXW8DETzLtyMYuesumJGs8N8KDF6hnNTVJFbOrDA7V7diXAlPgPfgmmFap9laIopzwR85Gtv0ibMAMGHMwocBF6BCuAM6YXtL_8nQodyR6LxmcVxwIlLyYUmtEeDoJN5s-otHJrZbCe4S2LeWzXcpVoAkDG0FbBDGDirLZ8HeMTSH5FGNvmKmI-t2KLH5STXtR1QoAG6_bWqufcXLfHL3hHrY5MrgaKAaRmoeN_Dw",
+        'Network': 'FA3DD3FC-8602-4521-B2CB-24670B20626C',
         "Content-Type": "application/json"
     }
     body = {
@@ -228,10 +252,6 @@ def api_07_add_learning_record_98393():
     return response.text
 
 
-
-
-
-
 # Negative scenarios
 # DELETE - online offering - offeringId, Result - Course, ElectronicAddressOwnership, & ElectronicAddress - deleted
 def api_08_negative_delete_online_offering_98391():
@@ -248,6 +268,8 @@ def api_08_negative_delete_online_offering_98391():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # UPDATE - online offering
 def api_09_negative_update_online_offering_98387():
     print('02_update_online_offerings')
@@ -266,6 +288,8 @@ def api_09_negative_update_online_offering_98387():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # ADD - online offering
 def api_10_negative_add_online_offering_98383():
     print('03_add_online_offerings')
@@ -286,6 +310,8 @@ def api_10_negative_add_online_offering_98383():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # DELETE - class offering
 def api_11_negative_delete_class_offering_98377():
     print('04_delete_class_offerings')
@@ -301,6 +327,8 @@ def api_11_negative_delete_class_offering_98377():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # UPDATE - class offering
 def api_12_negative_update_class_offering_98372():
     print('05_update_class_offerings')
@@ -335,6 +363,8 @@ def api_12_negative_update_class_offering_98372():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # ADD - class offering
 def api_13_negative_add_class_offering_98194():
     print('06_add_class_offering')
@@ -372,6 +402,8 @@ def api_13_negative_add_class_offering_98194():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
 # ADD - learning record
 # Creating a class using API
 # Looking for the same class created by API - same date from the list
@@ -413,4 +445,9 @@ def api_14_negative_add_learning_record_98393():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
+
+
+
+
+
 
