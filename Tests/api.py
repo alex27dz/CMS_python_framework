@@ -128,7 +128,7 @@ def api_04_delete_class_offering_98377():
 # UPDATE - class offering
 def api_05_update_class_offering_98372():
     print('05_update_class_offerings')
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
     headers = {
         "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
         "Content-Type": "application/json"
@@ -174,7 +174,7 @@ def api_06_add_class_offering_98194():
       "offeringId": "wah-379",
       "trainingStandardKey": "WAH-10083",
       "deliveryMethod": "in-person",
-      "courseName": "Working At Heights Alex",
+      "courseName": "Working At Heights",
       "seatsRemaining": 8,
       "contactForPricing": False,
       "price": 200,

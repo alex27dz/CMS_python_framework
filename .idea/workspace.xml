@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/new.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,9 +164,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.new" />
+        <item itemvalue="Python.api" />
         <item itemvalue="Python.implementations" />
         <item itemvalue="Python.api_test" />
-        <item itemvalue="Python.api" />
         <item itemvalue="Python.sql_connector_microsoft" />
       </list>
     </recent_temporary>
