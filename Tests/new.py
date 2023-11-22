@@ -46,22 +46,6 @@ def api_01_delete_online_offering():
     return response.text
 # api_01_delete_online_offering()
 
-# DELETE - class offering
-def api_04_delete_class_offering():
-    print('04_delete_class_offerings')
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-132"
-    headers = {
-        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YjJlYzg1ZTUyOTM0ZTk4YTcyMmJhZWYxMDUyMTlmYyIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA1ODczNjMsImV4cCI6MTcwMDYzMDU2MywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.RyrTQxYE_0ayvy3vFv5gA7ebim-x-HqUtUh1VOrA448Yv785qRqJuEb38LnsjigF8wmbetPI8vJkyM2rQ48fP3iZddOIunDDvPJ4IdJpEq1zzIUKecCzu3yn1rm7QzaQuKIWBd_Vo2o30i3sibUQ0epztFHyXctv5Ct_Xxj8V0W0dm4O4yKn-JdQsfDF6jOe5TMxYoeWeRIYTxi-EoX4swWVXiOghdXEnPsUD-Cksua4vVVq7j-4L1Nw4FuEnGJ5o0aTmbYIMnDpaXu5OmTponTlPzIvESzF0VPYeg4PbVum3mEtUDJjzeceFysb73NWVwWyk66mZ9ZdMgs5wCcVFw",
-        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
-        "Content-Type": "application/json; charset=utf-8"
-    }
-
-    response = requests.delete(url, headers=headers)
-    print(response.status_code)  # 204
-    print(response.text)  # print(response.json())
-    return response.text
-# api_04_delete_class_offering()
-
 
 # UPDATE - online offering
 def api_02_update_online_offering_98387():
@@ -85,8 +69,7 @@ def api_02_update_online_offering_98387():
 # api_02_update_online_offering_98387()
 
 
-
-# ADD - online offering - https://netsdc.visualstudio.com/SDC/_workitems/edit/98383
+# ADD - online offering
 def api_03_add_online_offering():
     print('03_add_online_offering')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
@@ -110,6 +93,62 @@ def api_03_add_online_offering():
 # api_03_add_online_offering()
 
 
+# DELETE - class offering
+def api_04_delete_class_offering():
+    print('04_delete_class_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-132"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YjJlYzg1ZTUyOTM0ZTk4YTcyMmJhZWYxMDUyMTlmYyIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA1ODczNjMsImV4cCI6MTcwMDYzMDU2MywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.RyrTQxYE_0ayvy3vFv5gA7ebim-x-HqUtUh1VOrA448Yv785qRqJuEb38LnsjigF8wmbetPI8vJkyM2rQ48fP3iZddOIunDDvPJ4IdJpEq1zzIUKecCzu3yn1rm7QzaQuKIWBd_Vo2o30i3sibUQ0epztFHyXctv5Ct_Xxj8V0W0dm4O4yKn-JdQsfDF6jOe5TMxYoeWeRIYTxi-EoX4swWVXiOghdXEnPsUD-Cksua4vVVq7j-4L1Nw4FuEnGJ5o0aTmbYIMnDpaXu5OmTponTlPzIvESzF0VPYeg4PbVum3mEtUDJjzeceFysb73NWVwWyk66mZ9ZdMgs5wCcVFw",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json; charset=utf-8"
+    }
+
+    response = requests.delete(url, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# api_04_delete_class_offering()
+
+
+# UPDATE - class offering
+def api_05_update_class_offering_98372():
+    print('05_update_class_offerings')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-380"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YjJlYzg1ZTUyOTM0ZTk4YTcyMmJhZWYxMDUyMTlmYyIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA1ODczNjMsImV4cCI6MTcwMDYzMDU2MywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.RyrTQxYE_0ayvy3vFv5gA7ebim-x-HqUtUh1VOrA448Yv785qRqJuEb38LnsjigF8wmbetPI8vJkyM2rQ48fP3iZddOIunDDvPJ4IdJpEq1zzIUKecCzu3yn1rm7QzaQuKIWBd_Vo2o30i3sibUQ0epztFHyXctv5Ct_Xxj8V0W0dm4O4yKn-JdQsfDF6jOe5TMxYoeWeRIYTxi-EoX4swWVXiOghdXEnPsUD-Cksua4vVVq7j-4L1Nw4FuEnGJ5o0aTmbYIMnDpaXu5OmTponTlPzIvESzF0VPYeg4PbVum3mEtUDJjzeceFysb73NWVwWyk66mZ9ZdMgs5wCcVFw",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "courseName": "Working At Heights",
+      "seatsRemaining": 11,
+      "contactForPricing": False,
+      "price": 200,
+      "address": {
+        "street-address": "1230 Main Street",
+        "extended-address": "PO Box 1234",
+        "locality": "Toronto",
+        "region": "ON",
+        "postal-code": "M7A 1T7",
+        "country-name": "Canada"
+      },
+      "events": [
+        {
+          "start": "2023-11-22T10:30:00.000Z",
+          "end": "2023-11-22T12:00:00.000Z"
+        }
+      ],
+      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+      "virtualClassUrl": "https://virtual-class-example.com/10001"
+    }
+    response = requests.patch(url, json=body, headers=headers)
+    print(response.status_code)  # 204
+    print(response.text)  # print(response.json())
+    return response.text
+# api_05_update_class_offering_98372()
+
+
+# ADD - class offering
 def api_06_add_class_offering_98194():
     print('06_add_class_offering')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
@@ -150,43 +189,55 @@ def api_06_add_class_offering_98194():
 # api_06_add_class_offering_98194()
 
 
-
-
-# UPDATE - class offering
-def api_05_update_class_offering_98372():
-    print('05_update_class_offerings')
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-380"
+# ADD - learning record
+# Creating a class using API
+# Looking for the same class created by API - same date from the list
+# View classroom > submitted records
+def api_07_add_learning_record_98393():
+    print('07_add_learning_record')
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
     headers = {
         "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YjJlYzg1ZTUyOTM0ZTk4YTcyMmJhZWYxMDUyMTlmYyIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA1ODczNjMsImV4cCI6MTcwMDYzMDU2MywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.RyrTQxYE_0ayvy3vFv5gA7ebim-x-HqUtUh1VOrA448Yv785qRqJuEb38LnsjigF8wmbetPI8vJkyM2rQ48fP3iZddOIunDDvPJ4IdJpEq1zzIUKecCzu3yn1rm7QzaQuKIWBd_Vo2o30i3sibUQ0epztFHyXctv5Ct_Xxj8V0W0dm4O4yKn-JdQsfDF6jOe5TMxYoeWeRIYTxi-EoX4swWVXiOghdXEnPsUD-Cksua4vVVq7j-4L1Nw4FuEnGJ5o0aTmbYIMnDpaXu5OmTponTlPzIvESzF0VPYeg4PbVum3mEtUDJjzeceFysb73NWVwWyk66mZ9ZdMgs5wCcVFw",
         "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
         "Content-Type": "application/json"
     }
     body = {
-      "courseName": "Working At Heights",
-      "seatsRemaining": 11,
-      "contactForPricing": False,
-      "price": 200,
-      "address": {
-        "street-address": "1230 Main Street",
-        "extended-address": "PO Box 1234",
-        "locality": "Toronto",
-        "region": "ON",
-        "postal-code": "M7A 1T7",
-        "country-name": "Canada"
-      },
-      "events": [
-        {
-          "start": "2023-11-22T10:30:00.000Z",
-          "end": "2023-11-22T12:00:00.000Z"
-        }
-      ],
-      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
-      "virtualClassUrl": "https://virtual-class-example.com/10001"
+      "learningRecordId": "wah-380",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-09-05T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-380",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-999",
+        "firstname": "Peter",
+        "lastname": "Johnson",
+        "personalEmail": "perter.johnson@example.com",
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
     }
-    response = requests.patch(url, json=body, headers=headers)
+    response = requests.post(url, json=body, headers=headers)
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-# api_05_update_class_offering_98372()
+# api_07_add_learning_record_98393()
+
+
+
+
+
+
+
 
 
