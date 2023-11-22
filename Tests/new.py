@@ -3,6 +3,7 @@ from urllib.parse import urlencode
 import requests
 import api
 import pytest
+import time
 
 
 def sso_token():
@@ -234,10 +235,31 @@ def api_07_add_learning_record_98393():
 # api_07_add_learning_record_98393()
 
 
-
-
-
-
-
-
+# latency
+def api_15_response_times():
+    print('15_response_times')
+    num_requests = 10  # Number of requests to send for testing
+    max_response_time = 0
+    total_response_time = 0
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-132"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YjJlYzg1ZTUyOTM0ZTk4YTcyMmJhZWYxMDUyMTlmYyIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA1ODczNjMsImV4cCI6MTcwMDYzMDU2MywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.RyrTQxYE_0ayvy3vFv5gA7ebim-x-HqUtUh1VOrA448Yv785qRqJuEb38LnsjigF8wmbetPI8vJkyM2rQ48fP3iZddOIunDDvPJ4IdJpEq1zzIUKecCzu3yn1rm7QzaQuKIWBd_Vo2o30i3sibUQ0epztFHyXctv5Ct_Xxj8V0W0dm4O4yKn-JdQsfDF6jOe5TMxYoeWeRIYTxi-EoX4swWVXiOghdXEnPsUD-Cksua4vVVq7j-4L1Nw4FuEnGJ5o0aTmbYIMnDpaXu5OmTponTlPzIvESzF0VPYeg4PbVum3mEtUDJjzeceFysb73NWVwWyk66mZ9ZdMgs5wCcVFw",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json"
+    }
+    for i in range(num_requests):
+        start_time = time.time()
+        response = requests.delete(url, headers=headers)
+        print(response.status_code)  # 204
+        print(response.text)  # print(response.json())
+        end_time = time.time()
+        response_time = end_time - start_time
+        total_response_time += response_time
+        if response_time > max_response_time:
+            max_response_time = response_time
+    average_response_time = total_response_time / num_requests
+    print('Number of requests ', num_requests)
+    print('Average response time ', average_response_time)
+    print('Maximum response time ', max_response_time)
+# api_15_response_times()
 
