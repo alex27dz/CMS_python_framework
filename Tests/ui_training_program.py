@@ -76,10 +76,12 @@ def subbmittionoftrainingprogram(program):
     english = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[3]/div/app-radio-button-list/div[3]/label')
     english.click()
     time.sleep(delay)
-    elearning = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[6]/label')
-    elearning.click()
-    # blended = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[3]/label')
-    # blended.click()
+    try:
+        elearning = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[6]/label')
+        elearning.click()
+    except:
+        blended = driver.find_element(By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[3]/label')
+        blended.click()
     # wait = WebDriverWait(driver, 60)
     # inclass = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-application-for-new-training-delivery/div[1]/div[1]/div[4]/div[1]/app-radio-button-list/div[4]/label')))
     # inclass.click()
