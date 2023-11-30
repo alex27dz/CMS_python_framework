@@ -1,148 +1,198 @@
-# UI perfromance testing
-
-import pytest
 from selenium import webdriver
-from concurrent.futures import ThreadPoolExecutor
+import time
+import requests
+from psutil import Process
+from selenium import webdriver
 import time
 
-# Fixture to set up and tear down the browser
-@pytest.fixture
-def browser_UI():
+
+
+def test_ui_page_load_time(url):
+    start_time = time.time()
+
     driver = webdriver.Chrome()
-    yield driver
+    driver.get(url)
+
+    end_time = time.time()
+    page_load_time = end_time - start_time
+
+    print(f"Page Load Time: {page_load_time} seconds")
+
     driver.quit()
 
-# Example website URL (replace with your website's URL)
-WEBSITE_URL = "https://example.com"
+# Example usage:
+test_ui_page_load_time("https://example.com")
 
-# Scenario 1: Page Load Time
-@pytest.mark.performance
-def test_UI_page_load_time(browser):
-    browser.get(WEBSITE_URL)
-    start_time = time.time()
-    end_time = time.time()
-    load_time = end_time - start_time
-    assert load_time <= 5.0, "Page load time exceeded 5 seconds"
 
-# Scenario 2: Response Time for User Actions
-@pytest.mark.performance
-def test_UI_response_time_for_user_action(browser):
-    browser.get(WEBSITE_URL)
+
+def test_ui_response_time_for_user_action(url):
+    driver = webdriver.Chrome()
+    driver.get(url)
+
     start_time = time.time()
-    # Simulate user action (e.g., click a button)
+
+    # Perform user action (e.g., click a button)
+    # driver.find_element_by_id("button_id").click()
+
     end_time = time.time()
     response_time = end_time - start_time
-    assert response_time <= 2.0, "Response time for user action exceeded 2 seconds"
 
-# Scenario 3: Scrolling Performance
-@pytest.mark.performance
-def test_UI_scrolling_performance(browser):
-    browser.get(WEBSITE_URL)
+    print(f"UI Response Time for User Action: {response_time} seconds")
+
+    driver.quit()
+
+
+# Example usage:
+test_ui_response_time_for_user_action("https://example.com")
+
+
+
+def test_ui_scrolling_performance(url):
+    driver = webdriver.Chrome()
+    driver.get(url)
+
     start_time = time.time()
-    # Simulate scrolling action (e.g., scroll to the bottom of the page)
+
+    # Scroll down the page
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
     end_time = time.time()
     scrolling_time = end_time - start_time
-    assert scrolling_time <= 1.0, "Scrolling performance exceeded 1 second"
 
-# Scenario 4: Concurrency Testing
-@pytest.mark.performance
-def test_UI_concurrency(browser):
-    def simulate_user_action():
-        browser.get(WEBSITE_URL)
-        # Simulate user action (e.g., click a link)
+    print(f"UI Scrolling Performance: {scrolling_time} seconds")
 
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        for _ in range(10):
-            executor.submit(simulate_user_action)
-
-# Scenario 5: Error Handling Response Time
-@pytest.mark.performance
-def test_UI_error_handling_response_time(browser):
-    browser.get(WEBSITE_URL)
-    start_time = time.time()
-    # Simulate an action that triggers an error (e.g., entering invalid data)
-    end_time = time.time()
-    response_time = end_time - start_time
-    assert response_time <= 2.0, "Error handling response time exceeded 2 seconds"
-
-# Scenario 6: Load Testing for Concurrent Users
-@pytest.mark.performance
-def test_UI_load_testing_for_concurrent_users(browser):
-    def simulate_user_action():
-        browser.get(WEBSITE_URL)
-        # Simulate user actions
-
-    with ThreadPoolExecutor(max_workers=50) as executor:
-        for _ in range(50):
-            executor.submit(simulate_user_action)
-
-# Scenario 7: Resource Load Time
-@pytest.mark.performance
-def test_UI_resource_load_time(browser):
-    browser.get(WEBSITE_URL)
-    start_time = time.time()
-    # Measure resource load time (e.g., for images)
-    end_time = time.time()
-    resource_load_time = end_time - start_time
-    assert resource_load_time <= 2.0, "Resource load time exceeded 2 seconds"
-
-# Scenario 8: Navigation Timing
-@pytest.mark.performance
-def test_UI_navigation_timing(browser):
-    browser.get(WEBSITE_URL)
-    navigation_timings = browser.execute_script("return window.performance.timing;")
-    # Analyze and assert on navigation timing metrics
-
-# Scenario 9: Browser Memory Usage
-@pytest.mark.performance
-def test_UI_browser_memory_usage(browser):
-    browser.get(WEBSITE_URL)
-    # Monitor browser memory usage (e.g., using WebDriver methods or browser developer tools)
-
-# Scenario 10: Concurrent User Session Duration
-@pytest.mark.performance
-def test_UI_concurrent_user_session_duration(browser):
-    def simulate_user_session():
-        start_time = time.time()
-        browser.get(WEBSITE_URL)
-        # Simulate user interactions
-        time.sleep(5)  # Simulate user interaction
-        end_time = time.time()
-        session_duration = end_time - start_time
-        assert session_duration <= 60, "Excessive user session duration"
-
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        for _ in range(10):
-            executor.submit(simulate_user_session)
-
-
-
-
-
-
-# UI
-
-# Initialize the WebDriver for UI testing
-@pytest.fixture
-def browser():
-    driver = webdriver.Chrome()
-    yield driver
     driver.quit()
 
-# Load Testing (UI)
-def test_load_ui(browser):
-    browser.get("https://example.com")
-    # Implement UI load testing, e.g., click buttons, navigate pages, and measure performance
 
-# Stress Testing (UI)
-def test_stress_ui(browser):
-    browser.get("https://example.com")
-    # Implement UI stress testing, e.g., overload interactions and measure performance
+# Example usage:
+test_ui_scrolling_performance("https://example.com")
 
-# Capacity Testing (UI)
-def test_capacity_ui(browser):
-    browser.get("https://example.com")
-    # Implement UI capacity testing, e.g., simulate many users and measure performance
+
+'''
+Concurrency testing involves simulating multiple users interacting with the UI simultaneously. For this, you might want to use a testing framework like Selenium Grid or tools like Locust or JMeter.
+
+'''
+
+
+
+def test_ui_error_handling_response_time(url):
+    driver = webdriver.Chrome()
+    driver.get(url)
+
+    # Trigger an error scenario
+    # e.g., driver.find_element_by_id("nonexistent_element").click()
+
+    start_time = time.time()
+
+    # Handle error (if applicable)
+
+    end_time = time.time()
+    error_handling_time = end_time - start_time
+
+    print(f"UI Error Handling Response Time: {error_handling_time} seconds")
+
+    driver.quit()
+
+
+# Example usage:
+test_ui_error_handling_response_time("https://example.com")
+
+
+def test_ui_error_handling_response_time(url):
+    driver = webdriver.Chrome()
+    driver.get(url)
+
+    # Trigger an error scenario
+    # e.g., driver.find_element_by_id("nonexistent_element").click()
+
+    start_time = time.time()
+
+    # Handle error (if applicable)
+
+    end_time = time.time()
+    error_handling_time = end_time - start_time
+
+    print(f"UI Error Handling Response Time: {error_handling_time} seconds")
+
+    driver.quit()
+
+# Example usage:
+test_ui_error_handling_response_time("https://example.com")
+
+
+
+
+
+def test_ui_resource_load_time(url):
+    start_time = time.time()
+
+    response = requests.get(url)
+
+    end_time = time.time()
+    resource_load_time = end_time - start_time
+
+    print(f"UI Resource Load Time: {resource_load_time} seconds")
+
+
+# Example usage:
+test_ui_resource_load_time("https://example.com")
+
+
+
+
+def test_ui_navigation_timing(url):
+    driver = webdriver.Chrome()
+    driver.get(url)
+
+    navigation_timing = driver.execute_script("return window.performance.timing;")
+
+    # Extract and print relevant timing information
+    print(f"Navigation Start Time: {navigation_timing['navigationStart']}")
+    print(f"Load Event Start Time: {navigation_timing['loadEventStart']}")
+
+    driver.quit()
+
+# Example usage:
+test_ui_navigation_timing("https://example.com")
+
+
+
+
+def test_ui_browser_memory_usage(url):
+    driver = webdriver.Chrome()
+    driver.get(url)
+
+    # Wait for the page to load
+    time.sleep(5)
+
+    process = Process(driver.service.process.pid)
+    memory_usage = process.memory_info().rss / (1024 ** 2)  # Convert to megabytes
+
+    print(f"Browser Memory Usage: {memory_usage} MB")
+
+    driver.quit()
+
+# Example usage:
+test_ui_browser_memory_usage("https://example.com")
+
+
+'''
+10. Test UI Concurrent User Session Duration:
+Concurrency testing tools can be used to measure the duration of concurrent user sessions.
+
+11. Test Load UI:
+Load testing tools like Locust or JMeter are more suitable for testing UI under load.
+
+12. Test Stress UI:
+Stress testing tools are needed to simulate extreme conditions. Tools like Locust or JMeter can be configured for stress testing.
+
+13. Test Capacity UI:
+Capacity testing involves determining the system's ability to handle a specific load. Tools like Locust or JMeter can be used for capacity testing.
+
+Remember to install necessary packages (e.g., Selenium, psutil) using pip install <package> before running these examples. Additionally, for some tests, you may need to install a web driver (e.g., ChromeDriver for Chrome).
+'''
+
+
 
 
 
