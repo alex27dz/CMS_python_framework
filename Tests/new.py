@@ -80,7 +80,6 @@ def api_03_add_online_offering():
     print(response.status_code)  # 204
     print(response.text)  # print(response.json())
     return response.text
-api_03_add_online_offering()
 def api_04_delete_class_offering():
     print('04_delete_class_offerings')
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-381"
@@ -736,7 +735,7 @@ body10 = {
 listofbodyapi = [body1, body2, body3, body4, body5, body6, body7, body8, body9, body10]
 
 
-def api_21_response_time_add_10_learning_records():
+def api_22_response_time_add_10_learning_records():
     print('Response_time')
     num_requests = 10  # Number of requests to send for testing
     max_response_time = 0
