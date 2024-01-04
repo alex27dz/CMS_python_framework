@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/submitted_program_check.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/submitted_program_check.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/ui_training_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/ui_training_program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/new.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/performance_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/performance_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/test_performance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/test_suit_ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/ui_assessor_portal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/ui_training_program.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,5 +1,5 @@
 import pytest
-from ui_training_program import *
+from UI_training_program import *
 
 def test_full_training_program_creation_JHSC():
     print('Start')

@@ -4,10 +4,8 @@ import requests
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 import api
-
 '''
 * Latency Testing - To measure the time it takes for the API to respond to requests, Script Description: Records the time it takes to receive a response for each API request.
-* Data Validation -
 * Volume Testing - To assess how a system handles a large volume of data. This type of testing helps evaluate how the system manages data storage, processing, and retrieval when dealing with a substantial amount of data. It aims to identify potential issues such as data overflow, data corruption, and performance degradation.
 * Capacity Testing - Objective: To determine the system's ability to handle a specific number of concurrent users or requests, Script Description: Capacity testing assesses the system's capacity to accommodate a predefined number of concurrent users or requests while maintaining optimal performance. This test aims to establish the system's limitations and understand how it responds under different levels of load, checking its scalability with increased resources.
 * Stress Testing - To evaluate the system's behavior at or beyond its expected capacity and identify breaking points, Script Description: Stress testing involves subjecting the system to loads that significantly exceed its expected capacity. This type of testing pushes the system to its limits, seeking to uncover its weaknesses, bottlenecks, and potential failure points. The goal is to understand how the system behaves when dealing with extreme loads and whether it can recover gracefully after high-stress scenarios.
@@ -20,23 +18,21 @@ import api
 '''
 
 
-# Latency
-def api_08_response_delete_online_offering_98391():
-    print('08_response_delete_online_offering')
+# latency
+def api_15_response_time_delete_online_offering():
+    print('Response_time')
     num_requests = 10  # Number of requests to send for testing
     max_response_time = 0
     total_response_time = 0
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"  # YOUR OFFERING ID HERE
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering/wah-131"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
-        "Content-Type": "application/json; charset=utf-8"
-    }
-    body = {
-      "offeringId": "ae555337-ca58-46a1-9471-a323a3dbdc85"
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json"
     }
     for i in range(num_requests):
         start_time = time.time()
-        response = requests.delete(url, json=body, headers=headers)
+        response = requests.delete(url, headers=headers)
         print(response.status_code)  # 204
         print(response.text)  # print(response.json())
         end_time = time.time()
@@ -48,53 +44,66 @@ def api_08_response_delete_online_offering_98391():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_09_response_update_online_offering_98387():
-    print('09_response_update_online_offering')
+def api_16_response_time_delete_class_offering():
+    print('Response_time')
     num_requests = 10  # Number of requests to send for testing
+    max_response_time = 0
+    total_response_time = 0
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-131"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json"
+    }
+    for i in range(num_requests):
+        start_time = time.time()
+        response = requests.delete(url, headers=headers)
+        print(response.status_code)  # 204
+        print(response.text)  # print(response.json())
+        end_time = time.time()
+        response_time = end_time - start_time
+        total_response_time += response_time
+        if response_time > max_response_time:
+            max_response_time = response_time
+    average_response_time = total_response_time / num_requests
+    print('Number of requests ', num_requests)
+    print('Average response time ', average_response_time)
+    print('Maximum response time ', max_response_time)
+def api_17_response_time_add_class_offering():
+    print('Response_time')
+    num_requests = 100  # Number of requests to send for testing
     max_response_time = 0
     total_response_time = 0
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
         "Content-Type": "application/json"
     }
     body = {
-      "courseName": "Working At Heights E-Learning",
-      "price": 100,
-      "courseDuration": 2.5,
-      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
-    }
-    for i in range(num_requests):
-        start_time = time.time()
-        response = requests.patch(url, json=body, headers=headers)
-        print(response.status_code)  # 204
-        print(response.text)  # print(response.json())
-        end_time = time.time()
-        response_time = end_time - start_time
-        total_response_time += response_time
-        if response_time > max_response_time:
-            max_response_time = response_time
-    average_response_time = total_response_time / num_requests
-    print('Number of requests ', num_requests)
-    print('Average response time ', average_response_time)
-    print('Maximum response time ', max_response_time)
-def api_10_response_add_online_offering_98383():
-    print('10_response_add_online_offering')
-    num_requests = 10  # Number of requests to send for testing
-    max_response_time = 0
-    total_response_time = 0
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
-    headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
-        "Content-Type": "application/json"
-    }
-    body = {
-      "offeringId": "wah-111",
-      "trainingStandardKey": "WAH-E-B-O",
-      "courseName": "Working At Heights",
-      "price": 100,
-      "courseDuration": 2.5,
-      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
+        "offeringId": "wah-383",  # need to make a new ID any new call
+        "trainingStandardKey": "WAH-10083",  # related to the Class ID inside the training programs schedules
+        "deliveryMethod": "in-person",
+        "courseName": "Working At Heights",
+        "seatsRemaining": 10,
+        "contactForPricing": False,
+        "price": 300,
+        "address": {
+            "street-address": "169 fort york",
+            "extended-address": "PO Box 1234",
+            "locality": "Toronto",
+            "region": "ON",
+            "postal-code": "M5V 0C8",
+            "country-name": "Canada"
+        },
+        "events": [
+            {
+                "start": "2023-11-24T10:30:00.000Z",
+                "end": "2023-11-24T12:00:00.000Z"
+            }
+        ],
+        "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
+        "virtualClassUrl": "https://virtual-class-example.com/10001"
     }
     for i in range(num_requests):
         start_time = time.time()
@@ -110,48 +119,22 @@ def api_10_response_add_online_offering_98383():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_11_response_delete_class_offering_98377():
-    print('11_response_delete_class_offering')
+def api_18_response_time_update_class_offering():
+    print('Response_time')
     num_requests = 10  # Number of requests to send for testing
     max_response_time = 0
     total_response_time = 0
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering/wah-383"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
-        "Content-Type": "application/json; charset=utf-8"
-    }
-    body = {
-      "offeringId": "external-class-id"
-    }
-    for i in range(num_requests):
-        start_time = time.time()
-        response = requests.delete(url, json=body, headers=headers)
-        print(response.status_code)  # 204
-        print(response.text)  # print(response.json())
-        end_time = time.time()
-        response_time = end_time - start_time
-        total_response_time += response_time
-        if response_time > max_response_time:
-            max_response_time = response_time
-    average_response_time = total_response_time / num_requests
-    print('Number of requests ', num_requests)
-    print('Average response time ', average_response_time)
-    print('Maximum response time ', max_response_time)
-def api_12_response_update_class_offering_98372():
-    print('12_response_update_class_offering')
-    num_requests = 10  # Number of requests to send for testing
-    max_response_time = 0
-    total_response_time = 0
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
-    headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
         "Content-Type": "application/json"
     }
     body = {
       "courseName": "Working At Heights",
-      "seatsRemaining": 5,
-      "contactForPricing": True,
-      "price": 100,
+      "seatsRemaining": 15,
+      "contactForPricing": False,
+      "price": 400,
       "address": {
         "street-address": "1230 Main Street",
         "extended-address": "PO Box 1234",
@@ -162,8 +145,8 @@ def api_12_response_update_class_offering_98372():
       },
       "events": [
         {
-          "start": "2018-11-21T10:30:00.000Z",
-          "end": "2018-11-21T12:00:00.000Z"
+          "start": "2023-11-25T10:30:00.000Z",
+          "end": "2023-11-25T12:00:00.000Z"
         }
       ],
       "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
@@ -183,40 +166,24 @@ def api_12_response_update_class_offering_98372():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_13_response_add_class_offering_98194():
-    print('13_response_add_class_offering')
-    num_requests = 10  # Number of requests to send for testing
+def api_19_response_time_add_online_offering():
+    print('Response_time')
+    num_requests = 30  # Number of requests to send for testing
     max_response_time = 0
     total_response_time = 0
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
         "Content-Type": "application/json"
     }
     body = {
-      "offeringId": "wah-999",
-      "trainingStandardKey": "WAH-10083",
-      "deliveryMethod": "in-person",
-      "courseName": "Working At Heights",
-      "seatsRemaining": 5,
-      "contactForPricing": True,
-      "price": 100,
-      "address": {
-        "street-address": "1230 Main Street",
-        "extended-address": "PO Box 1234",
-        "locality": "Toronto",
-        "region": "ON",
-        "postal-code": "M7A 1T7",
-        "country-name": "Canada"
-      },
-      "events": [
-        {
-          "start": "2023-09-05T10:30:00.000Z",
-          "end": "2023-09-05T12:00:00.000Z"
-        }
-      ],
-      "externalRegistrationUrl": "https://training-provider.com/reserve-seats/10012",
-      "virtualClassUrl": "https://virtual-class-example.com/10001"
+      "offeringId": "wah-131",    # need to make a new ID any new call
+      "trainingStandardKey": "JHSC-2014-1-10171",  # related to the Class ID inside the training programs schedules
+      "courseName": "JHSC - Part One",
+      "price": 111,
+      "courseDuration": 4,
+      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
     }
     for i in range(num_requests):
         start_time = time.time()
@@ -232,22 +199,54 @@ def api_13_response_add_class_offering_98194():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_14_response_add_learning_record_98393():
-    print('14_response_add_learning_record')
-    num_requests = 10  # Number of requests to send for testing
+def api_20_response_time_update_online_offering():
+    print('Response_time')
+    num_requests = 30  # Number of requests to send for testing
+    max_response_time = 0
+    total_response_time = 0
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/OnlineOffering/wah-131"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "courseName": "JHSC - Part One",
+      "price": 222,
+      "courseDuration": 3,
+      "externalRegistrationUrl": "https://trainingproviderreservationsystem/register"
+    }
+    for i in range(num_requests):
+        start_time = time.time()
+        response = requests.patch(url, json=body, headers=headers)
+        print(response.status_code)  # 204
+        print(response.text)  # print(response.json())
+        end_time = time.time()
+        response_time = end_time - start_time
+        total_response_time += response_time
+        if response_time > max_response_time:
+            max_response_time = response_time
+    average_response_time = total_response_time / num_requests
+    print('Number of requests ', num_requests)
+    print('Average response time ', average_response_time)
+    print('Maximum response time ', max_response_time)
+def api_21_response_time_add_learning_record():
+    print('Response_time')
+    num_requests = 30  # Number of requests to send for testing
     max_response_time = 0
     total_response_time = 0
     url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
         "Content-Type": "application/json"
     }
     body = {
-      "learningRecordId": "4108123e-7f35-4097-928a-5bccd5fe4111",
+      "learningRecordId": "wah-350",
       "trainingStandardKey": "WAH-10083",
-      "completionDate": "2023-09-05T22:38:15.000Z",
+      "completionDate": "2023-12-12T22:38:15.000Z",
       "networkKey": "pro-34616",
-      "externalClassId": "wah-999",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
       "instructorNames": "Jane Doe; Dave Weir",
       "evaluatorNames": "John Smith",
       "learner": {
@@ -282,29 +281,6 @@ def api_14_response_add_learning_record_98393():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_15_response_times():
-    print('15_response_times')
-    num_requests = 10  # Number of requests to send for testing
-    max_response_time = 0
-    total_response_time = 0
-    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/ClassOffering"  # YOUR OFFERING ID HERE
-    headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwia2V5IjoiRTkzM0QxQjMtMzQwNC00RUI1LUE3MEYtQjIxMjhCM0EyQzZBIn0.f3daVM-MZy8idhskfmafSdcZw6mwIiEzBze7UCZ2V6A",
-        "Content-Type": "application/json"
-    }
-    for i in range(num_requests):
-        start_time = time.time()
-        response = requests.get(url, headers=headers)
-        print(response.status_code)  # 204
-        print(response.text)  # print(response.json())
-        end_time = time.time()
-        response_time = end_time - start_time
-        total_response_time += response_time
-        if response_time > max_response_time:
-            max_response_time = response_time
-    average_response_time = total_response_time / num_requests
-    print('Number of requests ', num_requests)
-    print('Average response time ', average_response_time)
-    print('Maximum response time ', max_response_time)
+
 
 
