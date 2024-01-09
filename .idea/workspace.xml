@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/new.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/performance_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/performance_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/test_performance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/test_suit_ui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/ui_assessor_portal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/ui_training_program.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/APIs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/APIs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +54,8 @@
       <recent name="C:\ADocuments\Python_framework\CMS_Python\Functions" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_suit_ui.test_full_training_program_creation_WAH">
-    <configuration name="check" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.SQL_connector_microsoft">
+    <configuration name="SQL_connector_microsoft" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CMS_Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,28 +67,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/check.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="hi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CMS_Python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/hi.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tests/SQL_connector_microsoft.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,6 +95,22 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_functionality_UI.test_full_training_program_creation_JHSC" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="CMS_Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_functionality_UI.test_full_training_program_creation_JHSC&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest for test_suit_ui.test_full_training_program_creation_JHSC" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -158,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SQL_connector_microsoft" />
+        <item itemvalue="Python tests.pytest for test_functionality_UI.test_full_training_program_creation_JHSC" />
         <item itemvalue="Python tests.pytest for test_suit_ui.test_full_training_program_creation_WAH" />
         <item itemvalue="Python tests.pytest for test_suit_ui.test_full_training_program_creation_JHSC" />
         <item itemvalue="Python.ui_training_program" />
-        <item itemvalue="Python.check" />
-        <item itemvalue="Python.hi" />
       </list>
     </recent_temporary>
   </component>
@@ -187,5 +176,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Tests/perfromance_UI.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

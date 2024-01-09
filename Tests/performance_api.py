@@ -19,7 +19,7 @@ import api
 
 
 # latency
-def api_15_response_time_delete_online_offering():
+def api_01_response_time_delete_online_offering():
     print('Response_time')
     num_requests = 10  # Number of requests to send for testing
     max_response_time = 0
@@ -44,7 +44,7 @@ def api_15_response_time_delete_online_offering():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_16_response_time_delete_class_offering():
+def api_02_response_time_delete_class_offering():
     print('Response_time')
     num_requests = 10  # Number of requests to send for testing
     max_response_time = 0
@@ -69,7 +69,7 @@ def api_16_response_time_delete_class_offering():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_17_response_time_add_class_offering():
+def api_03_response_time_add_class_offering():
     print('Response_time')
     num_requests = 100  # Number of requests to send for testing
     max_response_time = 0
@@ -119,7 +119,7 @@ def api_17_response_time_add_class_offering():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_18_response_time_update_class_offering():
+def api_04_response_time_update_class_offering():
     print('Response_time')
     num_requests = 10  # Number of requests to send for testing
     max_response_time = 0
@@ -166,7 +166,7 @@ def api_18_response_time_update_class_offering():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_19_response_time_add_online_offering():
+def api_05_response_time_add_online_offering():
     print('Response_time')
     num_requests = 30  # Number of requests to send for testing
     max_response_time = 0
@@ -199,7 +199,7 @@ def api_19_response_time_add_online_offering():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_20_response_time_update_online_offering():
+def api_06_response_time_update_online_offering():
     print('Response_time')
     num_requests = 30  # Number of requests to send for testing
     max_response_time = 0
@@ -230,7 +230,7 @@ def api_20_response_time_update_online_offering():
     print('Number of requests ', num_requests)
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
-def api_21_response_time_add_learning_record():
+def api_07_response_time_add_learning_record():
     print('Response_time')
     num_requests = 30  # Number of requests to send for testing
     max_response_time = 0
@@ -282,5 +282,320 @@ def api_21_response_time_add_learning_record():
     print('Average response time ', average_response_time)
     print('Maximum response time ', max_response_time)
 
+
+body1 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam1.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body2 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam2.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body3 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam3.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body4 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam4.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body5 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam5.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body6 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam6.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body7 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam7.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body8 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam8.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body9 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam9.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+body10 = {
+      "learningRecordId": "wah-381",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-112",
+        "firstname": "adam",
+        "lastname": "Adam",
+        "personalEmail": "adam10.johnson@example.com",  # need to be changed for new record creations within the same class
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+listofbodyapi = [body1, body2, body3, body4, body5, body6, body7, body8, body9, body10]
+
+
+def api_08_response_time_add_10_learning_records():
+    print('Response_time')
+    num_requests = 10  # Number of requests to send for testing
+    max_response_time = 0
+    total_response_time = 0
+    url = "https://intra.stage.apps.labour.gov.on.ca/api-facade-qa/LearningRecord"
+    headers = {
+        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYWRmc29uZWtleS1hdXRoLnVhYS5zeXMudWF0LmNmLmF6LmNpaHMuZ292Lm9uLmNhL3Rva2VuX2tleXMiLCJraWQiOiJrZXktMSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjU3MjNlNTEyN2I0Zjc1YTI5NDMxYzBkYTM0YTUyNSIsInN1YiI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF1dGhvcml0aWVzIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSIsImNtcy1mYWNhZGUuYXV0aG9yaXplIl0sImNsaWVudF9pZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImNpZCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImF6cCI6IjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiYTBiMWZiNzkiLCJpYXQiOjE3MDA3NTE2MDMsImV4cCI6MTcwMDc5NDgwMywiaXNzIjoiaHR0cHM6Ly9hZGZzb25la2V5LWF1dGgudWFhLnN5cy51YXQuY2YuYXouY2locy5nb3Yub24uY2Evb2F1dGgvdG9rZW4iLCJ6aWQiOiJmODAzNWM5OS0xY2VjLTQyM2MtYTYyYi1lNTM1ZGRhZmY2ZjEiLCJhdWQiOlsiY21zLWZhY2FkZSIsInVhYSIsIjUzYzQwODQ0LTk5Y2EtNDE0Ny04NzE5LTc4ZWZhNTM2YmNmNCJdfQ.Zxa_3Th3MtTuPjReHZkLen8ja-k2Pr5-KhZCQ2ri2CSzRXprVykKoJRjIdpST6PCKEzoOsgO-0EICChzrXpJ5ooxNjg9digwsjuGOlMzdJqHIss1328edhdvbxCTZ5gSCGaOSLD03aCxJrdV9vkr5yk5Lf04UQuPHwIxjfJ3gtNOtLJA5xUq5LdQWfks0RuEb2DNg6v8CIqvC7jqeljkhb2OoNb0gyaSKhsALHxd9oD1KykinK2J2rMQ9Z9pzIigRRTL4R0YqyrwZamaFzw3v-0D7buTDlVUsh62dx_27ebk0PcyR_wL_QUnbKOgWa8YlfE18lpxwgZHte22pV5KPQ",
+        "key": "E933D1B3-3404-4EB5-A70F-B2128B3A2C6A",
+        "Content-Type": "application/json"
+    }
+    body = {
+      "learningRecordId": "wah-350",
+      "trainingStandardKey": "WAH-10083",
+      "completionDate": "2023-12-12T22:38:15.000Z",
+      "networkKey": "pro-34616",
+      "externalClassId": "wah-381",  # Need to match the ID of the class generated using the API's ClassOffering endpoint
+      "instructorNames": "Jane Doe; Dave Weir",
+      "evaluatorNames": "John Smith",
+      "learner": {
+        "uniqueId": "user-999",
+        "firstname": "Peter",
+        "lastname": "Johnson",
+        "personalEmail": "perter.johnson@example.com",
+        "birthYear": 1995,
+        "address": {
+          "street-address": "1230 Main Street",
+          "extended-address": "PO Box 1234",
+          "locality": "Toronto",
+          "region": "ON",
+          "postal-code": "M7A 1T7",
+          "country-name": "Canada"
+        },
+        "mobilePhone": "6047771234",
+        "homePhone": "7782225678"
+      }
+    }
+    for i in range(num_requests):
+        start_time = time.time()
+        response = requests.post(url, json=listofbodyapi[i], headers=headers)
+        print(response.status_code)  # 204
+        print(response.text)  # print(response.json())
+        end_time = time.time()
+        response_time = end_time - start_time
+        total_response_time += response_time
+        if response_time > max_response_time:
+            max_response_time = response_time
+    average_response_time = total_response_time / num_requests
+    print('Number of requests ', num_requests)
+    print('Average response time ', average_response_time)
+    print('Maximum response time ', max_response_time)
 
 

@@ -5,6 +5,19 @@ from psutil import Process
 from selenium import webdriver
 import time
 
+'''
+# latency and load testing of UI
+* Latency Testing - To measure the time it takes for the API to respond to requests, Script Description: Records the time it takes to receive a response for each API request.
+* Volume Testing - To assess how a system handles a large volume of data. This type of testing helps evaluate how the system manages data storage, processing, and retrieval when dealing with a substantial amount of data. It aims to identify potential issues such as data overflow, data corruption, and performance degradation.
+* Capacity Testing - Objective: To determine the system's ability to handle a specific number of concurrent users or requests, Script Description: Capacity testing assesses the system's capacity to accommodate a predefined number of concurrent users or requests while maintaining optimal performance. This test aims to establish the system's limitations and understand how it responds under different levels of load, checking its scalability with increased resources.
+* Stress Testing - To evaluate the system's behavior at or beyond its expected capacity and identify breaking points, Script Description: Stress testing involves subjecting the system to loads that significantly exceed its expected capacity. This type of testing pushes the system to its limits, seeking to uncover its weaknesses, bottlenecks, and potential failure points. The goal is to understand how the system behaves when dealing with extreme loads and whether it can recover gracefully after high-stress scenarios.
+* Load Testing - To measure how the system behaves under expected load conditions, Script Description: Load testing simulates typical user loads or requests to assess the system's performance under standard usage scenarios, This test focuses on evaluating whether the system consistently meets predefined performance criteria, including response times, resource utilization, and throughput. It aims to ensure a reliable and satisfactory user experience under expected loads.
+* Throughput Testing - To assess the number of requests the API can process within a specific time frame, Script Description: Measures how many requests the API can handle in a given time period.
+* Endurance Testing - Evaluate the API's performance over an extended period to check for memory leaks, resource consumption, and performance degradation
+* Spike Testing - Assess how the API performs when subjected to sudden and extreme changes in load or traffic
+* Scalability Testing - Test how the API scales with an increase in resources, such as servers or nodes, to accommodate growing traffic
+* Reliability Testing - Evaluate the API's ability to handle requests over an extended period without failure.
+'''
 
 
 def test_ui_page_load_time(url):
