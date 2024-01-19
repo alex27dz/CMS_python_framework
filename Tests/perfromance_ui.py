@@ -4,7 +4,6 @@ import requests
 from psutil import Process
 from selenium import webdriver
 import time
-
 '''
 # latency and load testing of UI
 * Latency Testing - To measure the time it takes for the API to respond to requests, Script Description: Records the time it takes to receive a response for each API request.
@@ -18,6 +17,61 @@ import time
 * Scalability Testing - Test how the API scales with an increase in resources, such as servers or nodes, to accommodate growing traffic
 * Reliability Testing - Evaluate the API's ability to handle requests over an extended period without failure.
 '''
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+def measure_all_elements_response_time(url):
+    # Set up the browser
+    driver = webdriver.Chrome()
+
+    # Open the web page
+    driver.get(url)
+
+    # Get all elements on the page
+    all_elements = driver.find_elements(By.XPATH, '//*')
+
+    # Initialize variables for response time calculations
+    total_response_time = 0
+    total_elements = 0
+
+    # Measure response time for each element
+    for element in all_elements:
+        start_time = time.time()
+
+        # Wait for the element to appear
+        element_location = element.location_once_scrolled_into_view
+
+        end_time = time.time()
+        response_time = end_time - start_time
+
+        total_response_time += response_time
+        total_elements += 1
+
+        print(f"Response time for {element.tag_name}: {response_time:.2f} seconds")
+
+    # Calculate average response time
+    if total_elements > 0:
+        average_response_time = total_response_time / total_elements
+        print(f"\nAverage response time for all elements: {average_response_time:.2f} seconds")
+
+    # Close the browser
+    driver.quit()
+if __name__ == "__main__":
+    # Replace 'https://example.com' with the URL of the web page you want to test
+    url_to_test = 'https://example.com'
+
+    # Run the test
+    measure_all_elements_response_time(url_to_test)
+
+
+
+
+
+
+
+
 
 
 def test_ui_page_load_time(url):
