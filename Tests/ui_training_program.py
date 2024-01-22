@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
+# https://stage.apps.labour.gov.on.ca/public-portal-uat/#/my-training-programs
 # QA
 portal_link = 'https://intra.stage.apps.labour.gov.on.ca/public-portal-qa/safety-and-prevention/home#/training-provider/my-training-programs'
 user = 'cmsproj01@gmail.com'
@@ -56,7 +57,7 @@ def logging(user, password):
     return True
 def subbmittionoftrainingprogram(program):
     wait = WebDriverWait(driver, 60)
-    submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/app-training-provider-registration-confirmation/div/div[1]/div[1]/div[3]/button')))
+    submitnewtraining = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main-content"]/div/div/app-training-provider-registration-confirmation/div/div[1]/div[1]/div[2]/button')))
     time.sleep(10)
     submitnewtraining.click()  # Perform further actions with the element, such as clicking it or extracting its text
     time.sleep(long_delay)
