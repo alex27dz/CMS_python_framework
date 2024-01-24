@@ -7,6 +7,8 @@
     <list default="true" id="42225bf5-5940-4d2d-8e27-6551d890a699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/APIs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/APIs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/performance_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/perfromance_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/perfromance_ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,15 +183,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Tests/perfromance_UI.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
